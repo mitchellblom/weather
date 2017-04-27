@@ -5,30 +5,42 @@ console.log("main js working");
 const apiKey = '';								// key goes here
 
 	$('body').on('click', 'li', (e) => {
-		console.log(e.target.innerHTML);
-		loadCity(e.target.innerHTML).then((data) => {			// upon change, adjust origin line for reference
-			console.log(data);
+		// console.log(e.target.innerHTML);
+		loadCity("Test City").then((result) => {			// upon change, adjust origin line for reference
+			console.log(result);
 		});
 		// loadPlaces(e.target.innerHTML).then((data) => {
 		// 	results = data.results;
 		// 		writePlaceToDom(results);
 		// 	})
 		// .catch((error) => {
-		// 	console.log(error);
+		// 	console.log(errsor);
 		// });
 	});
 
 	const loadCity = (city) => {
+		console.log(city);
+		console.log(apiKey);
 		return new Promise ((resolve, reject) => {
-			$.ajax(`api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1111111111 
+			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=94040,us&APPID=${apiKey}
 			`)
 			.done((data) => {
-				resolve(data.result);		// this result is getting back to line 8 for the then()
+				console.log("inside data");
+				resolve(data);		// this result is getting back to line 8 for the then()
 			})
 			.fail((error) => {
 				reject(error);
 			});
 		});
 	};
+
+
+
+
+
+
+
+
+
 
 });

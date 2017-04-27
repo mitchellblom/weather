@@ -14,6 +14,7 @@ Connecting to an online **API** using an access key. Calling the data via **AJAX
  - cd into lib
  - Run command "bower install"
  - Run command "npm install"
+ - Download city list from http://bulk.openweathermap.org/sample/city.list.json.gz, drop unzipped json into the root.
 
 
 <hr>
