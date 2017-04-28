@@ -4,28 +4,23 @@
 	<title>Weather API</title>
 
 	<link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="./styles/main.css">
 
 </head>
 <body>
 
 	<h1>Wanna Know Tha Weatha?</h1>
 
-	<div class="dropdown">
-	  <button class="btn btn-default dropdown-toggle" type="button" id="city-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	    Cities
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	    <li><a href="#">Dallas</a></li>
-	    <li><a href="#">Nashville</a></li>
-	    <li><a href="#">Madrid</a></li>
-	    <li><a href="#">Trujillo</a></li>
-	    <li><a href="#">Antigua</a></li>
-	  </ul>
+	<div class="input-group container">
+  		<span class="input-group-addon" id="basic-addon1">Zip Code:</span>
+ 		<input id="zip-input" type="text" class="form-control" placeholder="#####" aria-describedby="basic-addon1">
 	</div>
 
-	<div id="something">Something</div>	
+	<button class="btn btn-default center" type="button" id="submit-zip" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Test Clicker
+ 	</button>
 
+	<div id="something">Something</div>	
 
 	<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
  	<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

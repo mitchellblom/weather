@@ -4,25 +4,31 @@ console.log("main js working");
 
 const apiKey = '';								// key goes here
 
-	$('body').on('click', 'li', (e) => {
+let zipInput = $("#zip-input");
+let zipToPromise;
+
+	$('body').on('click', '#submit-zip', (e) => {
 		// console.log(e.target.innerHTML);
-		loadCity("Test City").then((result) => {			// upon change, adjust origin line for reference
+		console.log(zipInput[0].value);
+		zipToPromise = zipInput[0].value;
+		loadCity(zipToPromise).then((result) => {			// upon change, adjust origin line for reference
 			console.log(result);
+		// 	writePlaceToDom(results);
 		});
 		// loadPlaces(e.target.innerHTML).then((data) => {
 		// 	results = data.results;
-		// 		writePlaceToDom(results);
 		// 	})
 		// .catch((error) => {
-		// 	console.log(errsor);
+		// 	console.log(error);
 		// });
 	});
 
-	const loadCity = (city) => {
-		console.log(city);
+	const loadCity = (zip) => {
+		console.log(zip);
 		console.log(apiKey);
 		return new Promise ((resolve, reject) => {
-			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=94040,us&APPID=${apiKey}
+			console.log(zipToPromise);
+			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zipToPromise},us&APPID=${apiKey}
 			`)
 			.done((data) => {
 				console.log("inside data");
@@ -33,8 +39,6 @@ const apiKey = '';								// key goes here
 			});
 		});
 	};
-
-
 
 
 
