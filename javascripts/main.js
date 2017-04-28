@@ -12,8 +12,27 @@ let sevenDayForecast = [];
 
 	$('body').on('click', '#submit-zip', () => {
 		zipToPromise = zipInput[0].value;
-		loadWeatherData(zipToPromise);
+		zipToValidate(zip)
 	});
+
+
+	const zipToValidate = zip => {
+        if (zip.length == 5) {							// add numbers only validation here
+            console.log("zip validated");
+            loadWeatherData(zipToPromise);
+        } else {
+            console.log("Please enter valid 5 digit zipcode.");
+        }
+    };
+
+	const loadCurrent = (zip) => {
+		return new Promise ((resolve, reject) => {
+			$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
+			`)
+			.done((data) => { resolve(data); })		// this result is getting back to line 8 for the then()
+			.fail((error) => { reject(error); });
+		});
+	}
 
 	const loadForecast = (zip) => {
 		return new Promise ((resolve, reject) => {
@@ -23,6 +42,15 @@ let sevenDayForecast = [];
 			.fail((error) => { reject(error); });
 		});
 	};
+
+	const makeCurrentArray = (cityInfo) => {
+		console.log("cityInfo in makeCurrentArray", cityInfo);
+		// console.log("name: ", cityInfo.name);
+		// console.log("temp: ", cityInfo.main.temp);
+		// console.log("conditions: ", cityInfo.weather[0].description);
+		// console.log("pressure: ", cityInfo.main.pressure);
+		// console.log("wind speed: ", cityInfo.wind.speed);
+	}
 
 	const makeForecastArrays = (cityInfo) => {
 		console.log("cityInfo in makeForecastArrays", cityInfo);
@@ -39,24 +67,6 @@ let sevenDayForecast = [];
 		// console.log("wind speed: ", cityInfo.list[0].wind.speed);
 		// }
 	};
-
-	const loadCurrent = (zip) => {
-		return new Promise ((resolve, reject) => {
-			$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
-			`)
-			.done((data) => { resolve(data); })		// this result is getting back to line 8 for the then()
-			.fail((error) => { reject(error); });
-		});
-	}
-
-	const makeCurrentArray = (cityInfo) => {
-		console.log("cityInfo in makeCurrentArray", cityInfo);
-		// console.log("name: ", cityInfo.name);
-		// console.log("temp: ", cityInfo.main.temp);
-		// console.log("conditions: ", cityInfo.weather[0].description);
-		// console.log("pressure: ", cityInfo.main.pressure);
-		// console.log("wind speed: ", cityInfo.wind.speed);
-	}
 
 	const loadWeatherData = (zip) => {
 		Promise.all([loadCurrent(zip), loadForecast(zip)])
