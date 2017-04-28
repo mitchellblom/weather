@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-const apiKey = '';								// key goes here
+const apiKey = '0ae80a3f70676482e3aa424d58fc9b66';								// key goes here
 
-let zipInput = $("#zip-input");
+let zipInput = $('#zip-input');
 let zipToPromise;
 
 let currentWeather = [];
@@ -15,13 +15,19 @@ let sevenDayForecast = [];
 		zipToValidate(zipToPromise);
 	});
 
+	$("#zip-input").keyup(function() {
+        if (window.event.keyCode === 13) {
+			zipToPromise = zipInput[0].value;
+			zipToValidate(zipToPromise);
+        }
+    });
 
-	const zipToValidate = zip => {
+	const zipToValidate = (zip) => {
         if (zip.length == 5) {							// add numbers only validation here
-            console.log("zip validated");
+            console.log('zip validated');
             loadWeatherData(zipToPromise);
         } else {
-            console.log("Please enter valid 5 digit zipcode.");
+            console.log('Please enter valid 5 digit zipcode.');
         }
     };
 
@@ -29,8 +35,13 @@ let sevenDayForecast = [];
 		return new Promise ((resolve, reject) => {
 			$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
 			`)
-			.done((data) => { resolve(data); })		// this result is getting back to line 8 for the then()
-			.fail((error) => { reject(error); });
+			.done((data) => { 
+				resolve(data); 
+			})		// this result is getting back to line 8 for the then()
+			.fail((error) => { 
+				reject(error); 
+				alert("Looks like that zipcode isn't recognized."); 
+			});
 		});
 	}
 
@@ -38,8 +49,13 @@ let sevenDayForecast = [];
 		return new Promise ((resolve, reject) => {
 			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=${apiKey}
 			`)
-			.done((data) => { resolve(data); })		// this result is getting back to line 8 for the then()
-			.fail((error) => { reject(error); });
+			.done((data) => { 
+				resolve(data); 
+			})						// this result is getting back to line 8 for the then()
+			.fail((error) => { 
+				reject(error);
+				// unrecognized zipcode already communicated to user in loadCurrent function
+			});
 		});
 	};
 
