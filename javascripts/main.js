@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-const apiKey = '0ae80a3f70676482e3aa424d58fc9b66';								// key goes here
+const apiKey = '';								// key goes here
 
 let zipInput = $('#zip-input');
 let zipToPromise;
@@ -15,12 +15,24 @@ let sevenDayForecast = [];
 		zipToValidate(zipToPromise);
 	});
 
-	$("#zip-input").keyup(function() {
+	$("#zip-input").keyup(() => {
         if (window.event.keyCode === 13) {
 			zipToPromise = zipInput[0].value;
 			zipToValidate(zipToPromise);
         }
+
     });
+
+	const isNumberKey = (evt) => {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31 
+            && (charCode < 48 || charCode > 57))
+             return false;
+
+          return true;
+    }
+
+
 
 	const zipToValidate = (zip) => {
         if (zip.length == 5) {							// add numbers only validation here
