@@ -16,7 +16,6 @@ let sevenDayForecast = [];
 	});
 
 	const loadForecast = (zip) => {
-		console.log(zip);
 		return new Promise ((resolve, reject) => {
 			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=${apiKey}
 			`)
@@ -42,7 +41,6 @@ let sevenDayForecast = [];
 	};
 
 	const loadCurrent = (zip) => {
-		console.log("zip in loadCurrent", zip);
 		return new Promise ((resolve, reject) => {
 			$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
 			`)
@@ -53,6 +51,11 @@ let sevenDayForecast = [];
 
 	const makeCurrentArray = (cityInfo) => {
 		console.log("cityInfo in makeCurrentArray", cityInfo);
+		// console.log("name: ", cityInfo.name);
+		// console.log("temp: ", cityInfo.main.temp);
+		// console.log("conditions: ", cityInfo.weather[0].description);
+		// console.log("pressure: ", cityInfo.main.pressure);
+		// console.log("wind speed: ", cityInfo.wind.speed);
 	}
 
 	const loadWeatherData = (zip) => {
