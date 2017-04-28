@@ -1,47 +1,32 @@
 $(document).ready(function(){
 
-console.log("main js working");
-
 const apiKey = '';								// key goes here
 
 let zipInput = $("#zip-input");
 let zipToPromise;
 
+let currentWeather = [];
 let threeDayForecast = [];
 let sevenDayForecast = [];
 
 
 	$('body').on('click', '#submit-zip', () => {
-		console.log(zipInput[0].value);
 		zipToPromise = zipInput[0].value;
-		loadCity(zipToPromise).then((result) => {			// upon change, adjust origin line for reference
-			console.log(result);
-			makeForecastArrays(result);
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+		loadWeatherData(zipToPromise);
 	});
 
-	const loadCity = (zip) => {
+	const loadForecast = (zip) => {
 		console.log(zip);
-		console.log(apiKey);
 		return new Promise ((resolve, reject) => {
-			console.log(zipToPromise);
-			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zipToPromise},us&units=imperial&APPID=${apiKey}
+			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=${apiKey}
 			`)
-			.done((data) => {
-				console.log("inside data");
-				resolve(data);		// this result is getting back to line 8 for the then()
-			})
-			.fail((error) => {
-				reject(error);
-			});
+			.done((data) => { resolve(data); })		// this result is getting back to line 8 for the then()
+			.fail((error) => { reject(error); });
 		});
 	};
 
 	const makeForecastArrays = (cityInfo) => {
-		console.log(cityInfo);
+		console.log("cityInfo in makeForecastArrays", cityInfo);
 		threeDayForecast = cityInfo.list.slice(0,3);
 		console.log(threeDayForecast);
 		sevenDayForecast = cityInfo.list.slice(0,7);
@@ -56,7 +41,30 @@ let sevenDayForecast = [];
 		// }
 	};
 
+	const loadCurrent = (zip) => {
+		console.log("zip in loadCurrent", zip);
+		return new Promise ((resolve, reject) => {
+			$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
+			`)
+			.done((data) => { resolve(data); })		// this result is getting back to line 8 for the then()
+			.fail((error) => { reject(error); });
+		});
+	}
 
+	const makeCurrentArray = (cityInfo) => {
+		console.log("cityInfo in makeCurrentArray", cityInfo);
+	}
+
+	const loadWeatherData = (zip) => {
+		Promise.all([loadCurrent(zip), loadForecast(zip)])
+			.then((result) => {							// upon change, adjust origin line for reference
+			makeCurrentArray(result[0]);
+			makeForecastArrays(result[1]);			
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+	};
 
 
 
