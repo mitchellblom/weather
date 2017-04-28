@@ -10,9 +10,9 @@ let threeDayForecast = [];
 let sevenDayForecast = [];
 
 
-	$('body').on('click', '#submit-zip', () => {
+	$('body').on('click', '.submit-zip', () => {
 		zipToPromise = zipInput[0].value;
-		zipToValidate(zip)
+		zipToValidate(zipToPromise);
 	});
 
 
