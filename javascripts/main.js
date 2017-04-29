@@ -1,4 +1,8 @@
+///////////// global variable ///////////////////////////////////////
+
 let zipInput = $('#zip-input');
+
+///////////// dynamic zipcode validation from html /////////////////
 
 const zipDynamicValidate = (event) => {
     var charCode = (event.which) ? event.which : event.keyCode;
@@ -8,11 +12,13 @@ const zipDynamicValidate = (event) => {
     	else {
         	return true;
     	}
-}
+};
+
+///////////// promise and weather dom functions ////////////////////
 
 $(document).ready(function(){
 
-	const apiKey = '';								// key goes here
+	const apiKey = '';													// key goes here
 
 	let zipToPromise;
 	let cityName;
@@ -23,11 +29,11 @@ $(document).ready(function(){
 
 		$('body').on('click', '#current', () => {
 			zipToPromise = zipInput[0].value;
-			zipToValidate(zipToPromise);
+			loadWeatherData(zipToPromise);
 		});
 
 		$('body').on('click', '#three-day', () => {
-			// if (currentWeather !== []) {
+			// if (currentWeather !== []) {								// RESUME HERE to launch forecast b4 current
 				writeForecastArray(threeDayForecast);
 			// }
 			// else {
@@ -39,35 +45,19 @@ $(document).ready(function(){
 			writeForecastArray(sevenDayForecast);
 		});
 
-		$("#zip-input").keyup(() => {
-	        if (window.event.keyCode === 13) {
-				zipToPromise = zipInput[0].value;
-				zipToValidate(zipToPromise);
-	        }
-	    });
-
-		const zipToValidate = (zip) => {
-	        if (zip.length == 5) {							// add numbers only validation here
-	            console.log('zip validated');
-	            loadWeatherData(zipToPromise);
-	        } else {
-	            console.log('Please enter valid 5 digit zipcode.');
-	        }
-	    };
-
 		const loadCurrent = (zip) => {
 			return new Promise ((resolve, reject) => {
 				$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
 				`)
 				.done((data) => { 
 					resolve(data); 
-				})		// this result is getting back to line 8 for the then()
+				})											// this result goes to .then()
 				.fail((error) => { 
 					reject(error); 
 					alert("Looks like that zipcode isn't recognized."); 
 				});
 			});
-		}
+		};
 
 		const loadForecast = (zip) => {
 			return new Promise ((resolve, reject) => {
@@ -75,10 +65,9 @@ $(document).ready(function(){
 				`)
 				.done((data) => { 
 					resolve(data); 
-				})						// this result is getting back to line 8 for the then()
+				})											// this result goes to .then()
 				.fail((error) => { 
 					reject(error);
-					// unrecognized zipcode already communicated to user in loadCurrent function
 				});
 			});
 		};
@@ -103,8 +92,8 @@ $(document).ready(function(){
 		};
 
 		const writeForecastArray = (forecastArray) => {
-			console.log('forecastArray', forecastArray);
-			console.log('forecastArray[0]', forecastArray[0]);
+			// console.log('forecastArray', forecastArray);
+			// console.log('forecastArray[0]', forecastArray[0]);
 			$('#strings-written-here').html('');
 			for (var i = 0; i < forecastArray.length; i++) {
 				let forecastString = '';
@@ -122,7 +111,7 @@ $(document).ready(function(){
 
 		const loadWeatherData = (zip) => {
 			Promise.all([loadCurrent(zip), loadForecast(zip)])
-				.then((result) => {							// upon change, adjust origin line for reference
+				.then((result) => {									// .then()
 				makeAndWriteCurrentArray(result[0]);
 				makeForecastArrays(result[1]);			
 			})
