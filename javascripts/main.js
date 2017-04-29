@@ -26,13 +26,15 @@ $(document).ready(function(){
 	let threeDayForecast = [];
 	let sevenDayForecast = [];
 
+
+		$("#zip-input").keyup(function() {
+			if (window.event.keyCode === 13) {
+	 			submitForCurrent();
+			}
+		 });
+
 		$('body').on('click', '#current', () => {
-			zipToPromise = zipInput[0].value;
-			loadCurrent(zipToPromise).then((result) => {
-				makeAndWriteCurrentWeatherString(result)})
-				.catch((error) => {
-					console.error(error);
-				});
+			submitForCurrent();
 		});
 
 		$('body').on('click', '#three-day', () => {
@@ -56,6 +58,15 @@ $(document).ready(function(){
 					console.error(error);
 				});
 		});
+
+		const submitForCurrent = () => {
+			zipToPromise = zipInput[0].value;
+			loadCurrent(zipToPromise).then((result) => {
+				makeAndWriteCurrentWeatherString(result)})
+				.catch((error) => {
+					console.error(error);
+				});
+		}
 
 		const loadCurrent = (zip) => {
 			return new Promise ((resolve, reject) => {
