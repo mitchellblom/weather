@@ -14,20 +14,20 @@
 	<div class="container" id="input-row-container">
 	 	<div class="row" id="input-row">
 		  <div class="col-lg-6">
+				<p>Zip Code:</p>
 		    <div class="input-group">
-		      <input type="text" class="form-control text-input" placeholder="Zip Code" id="zip-input"; onkeypress="return isNumberKey(event)">
-		      <span class="input-group-btn">
-		        <!-- <button class="btn btn-default" type="button" >Load Weather</button> -->
-		        <div class="btn-group">
-	  				<button type="button" id="left-user-button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		      	<input type="text" class="form-control text-input" placeholder="#####" id="zip-input"; onkeypress="return zipDynamicValidate(event)">
+		      	<span class="input-group-btn">
+		       		<div class="btn-group">
+	  					<button type="button" id="left-user-button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	  				  Forecast <span class="caret"></span>
-	  				</button>
+	  					</button>
 	  					<ul class="dropdown-menu">
 						    <li><a id="current" href="#">Current Weather</a></li>
 						    <li><a id="three-day" href="#">3 Day</a></li>
 						    <li><a id="seven-day" href="#">7 Day</a></li>
 						</ul>
-				</div>
+					</div>
 		      </span>
 		    </div>
 		</div>

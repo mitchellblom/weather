@@ -1,16 +1,19 @@
-const isNumberKey = (event) => {
-          var charCode = (event.which) ? event.which : event.keyCode;
-          if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
-             return false;
+let zipInput = $('#zip-input');
 
-          return true;
-    }
+const zipDynamicValidate = (event) => {
+    var charCode = (event.which) ? event.which : event.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57) || (zipInput.val().length > 4)) {
+        	return false;
+        }
+    	else {
+        	return true;
+    	}
+}
 
 $(document).ready(function(){
 
 	const apiKey = '';								// key goes here
 
-	let zipInput = $('#zip-input');
 	let zipToPromise;
 	let cityName;
 

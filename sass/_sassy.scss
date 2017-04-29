@@ -1,4 +1,5 @@
 body {
+	background-color: lightblue;
 	text-align: center;
 	padding: 2%;
 }
@@ -7,13 +8,12 @@ body {
 	width: 25%;
 }
 
-body {
-	background-color: lightblue;
+#input-row-container {
+	width: 500px;
 }
 
-#input-row-container {
+#zip-input {
 	font-size: 2em;
-	width: 500px;
 }
 
 #input-row {
