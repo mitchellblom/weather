@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-const apiKey = '';								// key goes here
+const apiKey = '0ae80a3f70676482e3aa424d58fc9b66';								// key goes here
 
 let zipInput = $('#zip-input');
 let zipToPromise;
@@ -74,13 +74,16 @@ let sevenDayForecast = [];
 
 	const makeCurrentArray = (cityInfo) => {
 		console.log("cityInfo in makeCurrentArray", cityInfo);
-		// console.log("name: ", cityInfo.name);
-		// console.log("temp: ", cityInfo.main.temp);
-		// console.log("conditions: ", cityInfo.weather[0].description);
-		// console.log("pressure: ", cityInfo.main.pressure);
-		// console.log("wind speed: ", cityInfo.wind.speed);
-		$('#strings-written-here').html("in makeCurrentArray");
-	}
+		$('#strings-written-here').html('');
+		currentString = `<div class="current-conditions">
+						<div class="data-point">City: ${cityInfo.name}</div>
+						<div class="data-point">Temperature: ${cityInfo.main.temp}</div>
+						<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
+						<div class="data-point">Pressure: ${cityInfo.main.pressure}</div>
+						<div class="data-point">Wind Speed: ${cityInfo.wind.speed}</div>
+						</div>`;
+		$('#strings-written-here').html(currentString);
+	};
 
 	const makeForecastArrays = (cityInfo) => {
 		console.log("cityInfo in makeForecastArrays", cityInfo);
