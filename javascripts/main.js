@@ -23,15 +23,16 @@ let sevenDayForecast = [];
 
     });
 
-	const isNumberKey = (evt) => {
-          var charCode = (evt.which) ? evt.which : evt.keyCode;
-          if (charCode != 46 && charCode > 31 
-            && (charCode < 48 || charCode > 57))
-             return false;
+    // onkeypress="return isNumberKey(evt)			// for html if i choose to use inline validation
 
-          return true;
-    }
+	// const isNumberKey = (evt) => {
+ //          var charCode = (evt.which) ? evt.which : evt.keyCode;
+ //          if (charCode != 46 && charCode > 31 
+ //            && (charCode < 48 || charCode > 57))
+ //             return false;
 
+ //          return true;
+ //    }
 
 
 	const zipToValidate = (zip) => {
@@ -78,6 +79,7 @@ let sevenDayForecast = [];
 		// console.log("conditions: ", cityInfo.weather[0].description);
 		// console.log("pressure: ", cityInfo.main.pressure);
 		// console.log("wind speed: ", cityInfo.wind.speed);
+		$('#strings-written-here').html("in makeCurrentArray");
 	}
 
 	const makeForecastArrays = (cityInfo) => {

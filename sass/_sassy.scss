@@ -1,7 +1,23 @@
+body {
+	text-align: center;
+	padding: 2%;
+}
+
 .container {
 	width: 25%;
 }
 
 body {
 	background-color: lightblue;
+}
+
+#input-row-container {
+	font-size: 2em;
+	width: 500px;
+	
+}
+
+#input-row {
+	margin: auto;
+	text-align: center;
 }
