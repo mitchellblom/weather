@@ -23,7 +23,6 @@ $(document).ready(function(){
 	let zipToPromise;
 	let cityName;
 
-	let currentWeather = [];
 	let threeDayForecast = [];
 	let sevenDayForecast = [];
 

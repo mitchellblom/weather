@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-image: url("http://eskipaper.com/images/cloud-background-1.jpg");
   text-align: center;
   padding: 2%; }
 
@@ -21,3 +21,6 @@ body {
   border-radius: 5%;
   margin: 1%;
   padding: 2%; }
+
+h1, h4 {
+  color: white; }
