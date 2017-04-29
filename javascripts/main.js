@@ -4,6 +4,7 @@ const apiKey = '';								// key goes here
 
 let zipInput = $('#zip-input');
 let zipToPromise;
+let cityName;
 
 let currentWeather = [];
 let threeDayForecast = [];
@@ -79,10 +80,9 @@ let sevenDayForecast = [];
 	};
 
 	const makeAndWriteCurrentArray = (cityInfo) => {
-		console.log("cityInfo in makeAndWriteCurrentArray", cityInfo);
 		$('#strings-written-here').html('');
 		let currentString = 
-			`<div class="current-conditions">
+			`<div class="data-point-container">
 			<div class="data-point">City: ${cityInfo.name}</div>
 			<div class="data-point">Temperature: ${cityInfo.main.temp}</div>
 			<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
@@ -93,28 +93,27 @@ let sevenDayForecast = [];
 	};
 
 	const makeForecastArrays = (cityInfo) => {
-		console.log("cityInfo in makeForecastArrays", cityInfo);
+		cityName = cityInfo.city.name;
 		threeDayForecast = cityInfo.list.slice(0,3);
-		console.log(threeDayForecast);
 		sevenDayForecast = cityInfo.list.slice(0,7);
-		console.log(sevenDayForecast);
 	};
 
 	const writeForecastArray = (forecastArray) => {
-		console.log('inside writeForecastArray');
+		console.log('forecastArray', forecastArray);
+		console.log('forecastArray[0]', forecastArray[0]);
 		$('#strings-written-here').html('');
-		let forecastString = '';
 		for (var i = 0; i < forecastArray.length; i++) {
+			let forecastString = '';
 			forecastString += 
-				`<div class="current-conditions">
-				<div class="data-point">City: ${forecastArray[i].city.name}</div>
-				<div class="data-point">Temperature: ${forecastArray[i].list[0].main.temp}</div>
-				<div class="data-point">Conditions: ${forecastArray[i].list[0].weather[0].description}</div>
-				<div class="data-point">Pressure: ${forecastArray[i].list[0].main.pressure}</div>
-				<div class="data-point">Wind Speed: ${forecastArray[i].list[0].wind.speed}</div>
+				`<div class="data-point-container">
+				<div class="data-point">City: ${cityName}</div>
+				<div class="data-point">Temperature: ${forecastArray[i].main.temp}</div>
+				<div class="data-point">Conditions: ${forecastArray[i].weather[0].description}</div>
+				<div class="data-point">Pressure: ${forecastArray[i].main.pressure}</div>
+				<div class="data-point">Wind Speed: ${forecastArray[i].wind.speed}</div>
 				</div>`;
-			}
-		$('#strings-written-here').html(forecastString);
+			$('#strings-written-here').append(forecastString);
+		};
 	};
 
 	const loadWeatherData = (zip) => {

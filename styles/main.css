@@ -15,3 +15,8 @@ body {
 #input-row {
   margin: auto;
   text-align: center; }
+
+.data-point-container {
+  border: 2px solid black;
+  border-radius: 5%;
+  margin: 1%; }
