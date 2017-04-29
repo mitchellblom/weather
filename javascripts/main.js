@@ -40,7 +40,7 @@ $(document).ready(function(){
 		$('body').on('click', '#three-day', () => {
 			zipToPromise = zipInput[0].value;
 			loadForecast(zipToPromise).then((result) => {
-				makeForecastArrays(result)}).then(() => {
+				makeForecastArrays(result);}).then(() => {
 					writeForecastArray(threeDayForecast);
 				})
 				.catch((error) => {
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		$('body').on('click', '#seven-day', () => {
 			zipToPromise = zipInput[0].value;
 			loadForecast(zipToPromise).then((result) => {
-				makeForecastArrays(result)}).then(() => {
+				makeForecastArrays(result);}).then(() => {
 					writeForecastArray(sevenDayForecast);
 				})
 				.catch((error) => {
@@ -62,11 +62,11 @@ $(document).ready(function(){
 		const submitForCurrent = () => {
 			zipToPromise = zipInput[0].value;
 			loadCurrent(zipToPromise).then((result) => {
-				makeAndWriteCurrentWeatherString(result)})
+				makeAndWriteCurrentWeatherString(result);})
 				.catch((error) => {
 					console.error(error);
 				});
-		}
+		};
 
 		const loadCurrent = (zip) => {
 			return new Promise ((resolve, reject) => {
@@ -127,7 +127,7 @@ $(document).ready(function(){
 					<div class="data-point">Wind Speed: ${forecastArray[i].wind.speed}</div>
 					</div>`;
 				$('#strings-written-here').append(forecastString);
-			};
+			}
 		};
 
 
