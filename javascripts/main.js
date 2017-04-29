@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-const apiKey = '0ae80a3f70676482e3aa424d58fc9b66';								// key goes here
+const apiKey = '';								// key goes here
 
 let zipInput = $('#zip-input');
 let zipToPromise;
@@ -9,10 +9,17 @@ let currentWeather = [];
 let threeDayForecast = [];
 let sevenDayForecast = [];
 
-
-	$('body').on('click', '.submit-zip', () => {
+	$('body').on('click', '#current', () => {
 		zipToPromise = zipInput[0].value;
 		zipToValidate(zipToPromise);
+	});
+
+	$('body').on('click', '#three-day', () => {
+		writeForecastArray(threeDayForecast);
+	});
+
+	$('body').on('click', '#seven-day', () => {
+		writeForecastArray(sevenDayForecast);
 	});
 
 	$("#zip-input").keyup(() => {
@@ -20,7 +27,6 @@ let sevenDayForecast = [];
 			zipToPromise = zipInput[0].value;
 			zipToValidate(zipToPromise);
         }
-
     });
 
     // onkeypress="return isNumberKey(evt)			// for html if i choose to use inline validation
@@ -72,16 +78,17 @@ let sevenDayForecast = [];
 		});
 	};
 
-	const makeCurrentArray = (cityInfo) => {
-		console.log("cityInfo in makeCurrentArray", cityInfo);
+	const makeAndWriteCurrentArray = (cityInfo) => {
+		console.log("cityInfo in makeAndWriteCurrentArray", cityInfo);
 		$('#strings-written-here').html('');
-		currentString = `<div class="current-conditions">
-						<div class="data-point">City: ${cityInfo.name}</div>
-						<div class="data-point">Temperature: ${cityInfo.main.temp}</div>
-						<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
-						<div class="data-point">Pressure: ${cityInfo.main.pressure}</div>
-						<div class="data-point">Wind Speed: ${cityInfo.wind.speed}</div>
-						</div>`;
+		let currentString = 
+			`<div class="current-conditions">
+			<div class="data-point">City: ${cityInfo.name}</div>
+			<div class="data-point">Temperature: ${cityInfo.main.temp}</div>
+			<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
+			<div class="data-point">Pressure: ${cityInfo.main.pressure}</div>
+			<div class="data-point">Wind Speed: ${cityInfo.wind.speed}</div>
+			</div>`;
 		$('#strings-written-here').html(currentString);
 	};
 
@@ -91,20 +98,29 @@ let sevenDayForecast = [];
 		console.log(threeDayForecast);
 		sevenDayForecast = cityInfo.list.slice(0,7);
 		console.log(sevenDayForecast);
-		// for (var i = 0; i < 2; i++) {			// 3 day forecast
-		// 	console.log("name: ", cityInfo.city.name);
-			
-		// console.log("temp: ", cityInfo.list[0].main.temp);
-		// console.log("conditions: ", cityInfo.list[0].weather[0].description);
-		// console.log("pressure: ", cityInfo.list[0].main.pressure);
-		// console.log("wind speed: ", cityInfo.list[0].wind.speed);
-		// }
+	};
+
+	const writeForecastArray = (forecastArray) => {
+		console.log('inside writeForecastArray');
+		$('#strings-written-here').html('');
+		let forecastString = '';
+		for (var i = 0; i < forecastArray.length; i++) {
+			forecastString += 
+				`<div class="current-conditions">
+				<div class="data-point">City: ${forecastArray[i].city.name}</div>
+				<div class="data-point">Temperature: ${forecastArray[i].list[0].main.temp}</div>
+				<div class="data-point">Conditions: ${forecastArray[i].list[0].weather[0].description}</div>
+				<div class="data-point">Pressure: ${forecastArray[i].list[0].main.pressure}</div>
+				<div class="data-point">Wind Speed: ${forecastArray[i].list[0].wind.speed}</div>
+				</div>`;
+			}
+		$('#strings-written-here').html(forecastString);
 	};
 
 	const loadWeatherData = (zip) => {
 		Promise.all([loadCurrent(zip), loadForecast(zip)])
 			.then((result) => {							// upon change, adjust origin line for reference
-			makeCurrentArray(result[0]);
+			makeAndWriteCurrentArray(result[0]);
 			makeForecastArrays(result[1]);			
 		})
 		.catch((error) => {
