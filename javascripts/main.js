@@ -18,7 +18,7 @@ const zipDynamicValidate = (event) => {
 
 $(document).ready(function(){
 
-	const apiKey = '';													// key goes here
+	const apiKey = '';											// key goes here
 
 	let zipToPromise;
 	let cityName;
@@ -29,20 +29,33 @@ $(document).ready(function(){
 
 		$('body').on('click', '#current', () => {
 			zipToPromise = zipInput[0].value;
-			loadWeatherData(zipToPromise);
+			loadCurrent(zipToPromise).then((result) => {
+				makeAndWriteCurrentWeatherString(result)})
+				.catch((error) => {
+					console.error(error);
+				});
 		});
 
 		$('body').on('click', '#three-day', () => {
-			// if (currentWeather !== []) {								// RESUME HERE to launch forecast b4 current
-				writeForecastArray(threeDayForecast);
-			// }
-			// else {
-			// 	console.log("else here")
-			// }
+			zipToPromise = zipInput[0].value;
+			loadForecast(zipToPromise).then((result) => {
+				makeForecastArrays(result)}).then(() => {
+					writeForecastArray(threeDayForecast);
+				})
+				.catch((error) => {
+					console.error(error);
+				});
 		});
 
 		$('body').on('click', '#seven-day', () => {
-			writeForecastArray(sevenDayForecast);
+			zipToPromise = zipInput[0].value;
+			loadForecast(zipToPromise).then((result) => {
+				makeForecastArrays(result)}).then(() => {
+					writeForecastArray(sevenDayForecast);
+				})
+				.catch((error) => {
+					console.error(error);
+				});
 		});
 
 		const loadCurrent = (zip) => {
@@ -51,7 +64,7 @@ $(document).ready(function(){
 				`)
 				.done((data) => { 
 					resolve(data); 
-				})											// this result goes to .then()
+				})
 				.fail((error) => { 
 					reject(error); 
 					alert("Looks like that zipcode isn't recognized."); 
@@ -65,14 +78,14 @@ $(document).ready(function(){
 				`)
 				.done((data) => { 
 					resolve(data); 
-				})											// this result goes to .then()
+				})
 				.fail((error) => { 
 					reject(error);
 				});
 			});
 		};
 
-		const makeAndWriteCurrentArray = (cityInfo) => {
+		const makeAndWriteCurrentWeatherString = (cityInfo) => {
 			$('#strings-written-here').html('');
 			let currentString = 
 				`<div class="data-point-container">
@@ -92,8 +105,6 @@ $(document).ready(function(){
 		};
 
 		const writeForecastArray = (forecastArray) => {
-			// console.log('forecastArray', forecastArray);
-			// console.log('forecastArray[0]', forecastArray[0]);
 			$('#strings-written-here').html('');
 			for (var i = 0; i < forecastArray.length; i++) {
 				let forecastString = '';
@@ -108,18 +119,6 @@ $(document).ready(function(){
 				$('#strings-written-here').append(forecastString);
 			};
 		};
-
-		const loadWeatherData = (zip) => {
-			Promise.all([loadCurrent(zip), loadForecast(zip)])
-				.then((result) => {									// .then()
-				makeAndWriteCurrentArray(result[0]);
-				makeForecastArrays(result[1]);			
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-		};
-
 
 
 
