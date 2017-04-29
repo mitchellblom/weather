@@ -19,4 +19,5 @@ body {
 .data-point-container {
   border: 2px solid black;
   border-radius: 5%;
-  margin: 1%; }
+  margin: 1%;
+  padding: 2%; }
