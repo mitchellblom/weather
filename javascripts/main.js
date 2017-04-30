@@ -18,7 +18,7 @@ const zipDynamicValidate = (event) => {
 
 $(document).ready(function(){
 
-	const apiKey = '';											// key goes here
+	const apiKey = '0ae80a3f70676482e3aa424d58fc9b66';											// key goes here
 
 	let zipToPromise;
 	let cityName;
@@ -60,6 +60,9 @@ $(document).ready(function(){
 		});
 
 		const submitForCurrent = () => {
+			if (apiKey === '') {
+				alert('Remember to enter an API key.');
+			}
 			zipToPromise = zipInput[0].value;
 			loadCurrent(zipToPromise).then((result) => {
 				makeAndWriteCurrentWeatherString(result);})
