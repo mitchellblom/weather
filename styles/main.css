@@ -4,11 +4,7 @@ body {
   padding: 2%; }
 
 .container {
-  width: 500px;
-  margin: auto; }
-
-div input {
-  font-size: 1.5em; }
+  width: 200px; }
 
 .row {
   margin: auto;
@@ -18,6 +14,7 @@ div input {
   background: rgba(255, 255, 255, 0.7);
   border: 2px wavy black;
   border-radius: 5%;
+  font-family: Acme, sans-serif;
   margin: 1%;
   padding: 2%; }
 
@@ -27,4 +24,6 @@ h1, h4 {
   color: white; }
 
 h4 {
+  font-family: Chicle, sans-serif;
+  color: white;
   font-size: 2em; }

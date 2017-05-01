@@ -101,7 +101,7 @@ $(document).ready(function(){
 		const makeAndWriteCurrentWeatherString = (cityInfo) => {
 			$('#strings-written-here').html('');
 			let currentString = 
-				`<div class="data-point-container">
+				`<div class="data-point-container col-lg-3">
 				<div class="data-point">City: ${cityInfo.name}</div>
 				<div class="data-point">Temperature: ${cityInfo.main.temp}</div>
 				<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
@@ -122,7 +122,7 @@ $(document).ready(function(){
 			for (var i = 0; i < forecastArray.length; i++) {
 				let forecastString = '';
 				forecastString += 
-					`<div class="data-point-container">
+					`<div class="data-point-container col-lg-3">
 					<div class="data-point">City: ${cityName}</div>
 					<div class="data-point">Temperature: ${forecastArray[i].main.temp}</div>
 					<div class="data-point">Conditions: ${forecastArray[i].weather[0].description}</div>
