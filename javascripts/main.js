@@ -103,10 +103,10 @@ $(document).ready(function(){
 			let currentString = 
 				`<div class="data-point-container col-lg-3">
 				<div class="data-point">City: ${cityInfo.name}</div>
-				<div class="data-point">Temperature: ${cityInfo.main.temp}</div>
+				<div class="data-point">Temp: ${cityInfo.main.temp}°F</div>
 				<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
-				<div class="data-point">Pressure: ${cityInfo.main.pressure}</div>
-				<div class="data-point">Wind Speed: ${cityInfo.wind.speed}</div>
+				<div class="data-point">Pressure: ${cityInfo.main.pressure} mb</div>
+				<div class="data-point">Wind Speed: ${cityInfo.wind.speed} mph</div>
 				</div>`;
 			$('#strings-written-here').html(currentString);
 		};
@@ -124,10 +124,10 @@ $(document).ready(function(){
 				forecastString += 
 					`<div class="data-point-container col-lg-3">
 					<div class="data-point">City: ${cityName}</div>
-					<div class="data-point">Temperature: ${forecastArray[i].main.temp}</div>
+					<div class="data-point">High Temp: ${forecastArray[i].main.temp}°F</div>
 					<div class="data-point">Conditions: ${forecastArray[i].weather[0].description}</div>
-					<div class="data-point">Pressure: ${forecastArray[i].main.pressure}</div>
-					<div class="data-point">Wind Speed: ${forecastArray[i].wind.speed}</div>
+					<div class="data-point">Pressure: ${forecastArray[i].main.pressure} mb</div>
+					<div class="data-point">Wind Speed: ${forecastArray[i].wind.speed} mph</div>
 					</div>`;
 				$('#strings-written-here').append(forecastString);
 			}
