@@ -26,7 +26,6 @@ $(document).ready(function(){
 	let threeDayForecast = [];
 	let sevenDayForecast = [];
 
-
 		$("#zip-input").keyup(function() {
 			if (window.event.keyCode === 13) {
 	 			submitForCurrent();
@@ -101,7 +100,7 @@ $(document).ready(function(){
 		const makeAndWriteCurrentWeatherString = (cityInfo) => {
 			$('#strings-written-here').html('');
 			let currentString = 
-				`<div class="data-point-container col-lg-3">
+				`<div class="data-point-container col-lg-4">
 				<div class="data-point">City: ${cityInfo.name}</div>
 				<div class="data-point">Temp: ${cityInfo.main.temp}°F</div>
 				<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
@@ -119,10 +118,17 @@ $(document).ready(function(){
 
 		const writeForecastArray = (forecastArray) => {
 			$('#strings-written-here').html('');
+				let daysOutString = '';
 			for (var i = 0; i < forecastArray.length; i++) {
+				if (i === 0) {
+					daysOutString = "Tomorrow";
+				} else {
+					daysOutString = (i + 1) + " days away";
+				}
 				let forecastString = '';
 				forecastString += 
-					`<div class="data-point-container col-lg-3">
+					`<div class="data-point-container col-lg-4">
+					<div class="data-point">${daysOutString}</div>
 					<div class="data-point">City: ${cityName}</div>
 					<div class="data-point">High Temp: ${forecastArray[i].main.temp}°F</div>
 					<div class="data-point">Conditions: ${forecastArray[i].weather[0].description}</div>
