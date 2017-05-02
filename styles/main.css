@@ -3,14 +3,12 @@ body {
   text-align: center;
   padding: 2%; }
 
-.container {
-  margin: 0 auto; }
-
 .input-zip {
   width: 200px; }
 
 .data-point-container {
-  height: 300px;
+  height: 200px;
+  width: 22%;
   background: rgba(255, 255, 255, 0.6);
   border: 2px wavy black;
   border-radius: 5%;

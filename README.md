@@ -5,15 +5,17 @@
 <hr>
 
 ## Summary
-Connecting to an online **API** using an access key. Calling the data via **AJAX** and presenting it in a user-friendly format styled with basic **SASS CSS**. Continued use of **ES6** syntax.
+Connecting to an online **API** using an access key. Calling the data via **Promises** and **AJAX**, presenting the app in a user-friendly format styled with basic **SASS CSS** and **Bootstrap** Library. Continued use of **ES6** syntax.
 
 <hr>
-
-## To Access Necessary Libaries:
+ 
+## To Access Necessary Libaries and API:
  - Pull down project
  - cd into lib
  - Run command "bower install"
  - Run command "npm install"
+ - Obtain free API key from https://home.openweathermap.org/
+ - Input API key between the quotes where labeled on main.js line 22
 
 <hr>
 

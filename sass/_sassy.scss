@@ -4,37 +4,35 @@ body {
 	padding: 2%;
 }
 
-.container {
-	margin: 0 auto;
-}
-
 .input-zip {
 	width: 200px;
 }
 
 .data-point-container {
-	height: 300px;
-	// width: 20%;
+	height: 200px;
 	background: rgba(255, 255, 255, 0.6);
 	border: 2px wavy black;
 	border-radius: 5%;
 	font-family: 'PT Sans Caption', sans-serif;
 	font-size: 1.4em;
-	margin: 1%;
+	margin: auto;
 	padding: 1%;
 }
 
-h1 {
+$heading-fonts: {
 	font-family: Chicle, sans-serif;
 	text-shadow: 1px 1px 1px #000, 0 0 1em #000, 0 0 0.2em white;
-	font-size: 6em;
 	color: white;
+
+	h1 {
+		font-size: 6em;
+	}
+	
+	h4 {
+		font-size: 2em;
+	}
+
 }
 
-h4 {
-	font-family: Chicle, sans-serif;
-	text-shadow: 1px 1px 1px #000, 0 0 1em #000, 0 0 0.2em white;
-	color: white;
-	font-size: 2em;
-}
+
 
