@@ -1,6 +1,7 @@
 ///////////// global variable ///////////////////////////////////////
 
 let zipInput = $('#zip-input');
+let counter = 0;
 
 ///////////// dynamic zipcode validation from html /////////////////
 
@@ -111,6 +112,7 @@ $(document).ready(function(){
 		};
 
 		const makeForecastArrays = (cityInfo) => {
+			counter++;
 			cityName = cityInfo.city.name;
 			threeDayForecast = cityInfo.list.slice(0,3);
 			sevenDayForecast = cityInfo.list.slice(0,7);
@@ -126,8 +128,13 @@ $(document).ready(function(){
 					daysOutString = (i + 1) + " days away";
 				}
 				let forecastString = '';
+
+				if (counter % 4 === 0) {
+                	forecastString += `<div class="row">`;
+            	}
+
 				forecastString += 
-					`<div class="data-point-container col-lg-4">
+					`<div class="data-point-container col-lg-3">
 					<div class="data-point">${daysOutString}</div>
 					<div class="data-point">City: ${cityName}</div>
 					<div class="data-point">High Temp: ${forecastArray[i].main.temp}°F</div>
@@ -135,6 +142,11 @@ $(document).ready(function(){
 					<div class="data-point">Pressure: ${forecastArray[i].main.pressure} mb</div>
 					<div class="data-point">Wind Speed: ${forecastArray[i].wind.speed} mph</div>
 					</div>`;
+
+				if (counter % 4 === 3) {
+                	forecastString += `</div>`;
+                }
+
 				$('#strings-written-here').append(forecastString);
 			}
 		};

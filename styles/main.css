@@ -9,20 +9,15 @@ body {
 .input-zip {
   width: 200px; }
 
-.row {
-  margin: auto;
-  text-align: center; }
-
 .data-point-container {
   height: 300px;
   background: rgba(255, 255, 255, 0.6);
   border: 2px wavy black;
   border-radius: 5%;
   font-family: 'PT Sans Caption', sans-serif;
-  font-size: 1.8em;
+  font-size: 1.4em;
   margin: 1%;
-  padding: 1%;
-  align: center; }
+  padding: 1%; }
 
 h1 {
   font-family: Chicle, sans-serif;
