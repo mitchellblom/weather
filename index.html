@@ -16,7 +16,6 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<!-- <a class="navbar-brand" href="#"></a> -->
 				</div>
 				<div class="collapse navbar-collapse" id="">
 					<ul class="nav navbar-nav navbar-right">
@@ -26,9 +25,7 @@
 				</div>
 			</div>
 		</nav>
-
 		<h1>Wanna Know Tha Weatha?</h1>
-
 		<div class="container col-xs-4 col-xs-offset-4" id="login-container">
 			<h3 class="text-center form-spacing">Please Login or Register</h3>
 			<input type="email" id="inputEmail" class="form-control form-spacing" placeholder="Email Address" required autofocus>
@@ -37,49 +34,46 @@
 			<button class="btn btn-lg col-xs-6" id="loginButton">Login</button>
 			<button class="btn btn-lg col-xs-6" id="registerButton">Register</button>
 		</div>
-
-		<div class="container input-zip hide">
-			<h4>Enter Zip Code:</h4>
-			<div>
+		<div class="col-xs-8 col-xs-offset-2 hide main-container">
+			<div class="container input-zip hide">
+				<h4>Enter Zip Code:</h4>
 				<div>
-					<div class="input-group">
-						<input type="text" class="form-control text-input" placeholder="#####" id="zip-input"; onkeypress="return zipDynamicValidate(event)">
-						<span class="input-group-btn">
-							<div class="btn-group">
-								<button type="button" id="left-user-button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Forecast <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a id="current" href="#">Current Weather</a></li>
-									<li><a id="three-day" href="#">3 Day Forecast</a></li>
-									<li><a id="seven-day" href="#">7 Day Forecast</a></li>
-								</ul>
-							</div>
-						</span>
+					<div>
+						<div class="input-group">
+							<input type="text" class="form-control text-input" placeholder="#####" id="zip-input"; onkeypress="return zipDynamicValidate(event)">
+							<span class="input-group-btn">
+								<div class="btn-group">
+									<button type="button" id="left-user-button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Forecast <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a id="current" href="#">Current Weather</a></li>
+										<li><a id="three-day" href="#">3 Day Forecast</a></li>
+										<li><a id="seven-day" href="#">7 Day Forecast</a></li>
+									</ul>
+								</div>
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="col-xs-12 list-container">
+			<div class="col-xs-12 list-container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h3>Todo<span id="counter"></span></h3>
+					<ul id="incomplete-tasks"></ul>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<h3>Todo<span id="counter"></span></h3>
-				<ul id="incomplete-tasks"></ul>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<h3>Completed</h3>
+					<h3>Completed</h3>
 				<ul id="completed-tasks"></ul>
 			</div>
 		</div>
 	</div>
-
-<div class="container" id="strings-written-here">
-	
+	<div class="container" id="strings-written-here">	<!-- strings written here -->
 </div>
-
+</div>
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

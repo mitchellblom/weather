@@ -1,0 +1,16 @@
+{
+  "items" : {
+    "item0" : {
+      "zip" : 75032,
+      "city" : "Rockwall"
+    },
+    "item1" : {
+      "zip" : 37208,
+      "city" : "Nashville"
+    },
+    "item2" : {
+      "zip" : 37013,
+      "city" : "Antioch"
+    }
+  }
+}
