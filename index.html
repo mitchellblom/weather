@@ -19,8 +19,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a id="new-preset" href="#">New</a></li>
-						<li><a id="list-presets" href="#">List</a></li>
+						<li><a id="new-preset" href="#">Lookup</a></li>
+						<li><a id="list-presets" href="#">Presets</a></li>
 					</ul>
 				</div>
 			</div>
@@ -55,23 +55,23 @@
 							</span>
 						</div>
 					</div>
+					<div class="container col-md-12" id="strings-written-here">	<!-- strings written here -->
 				</div>
-			</div>
-			<div class="col-xs-12 list-container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h3>Todo<span id="counter"></span></h3>
-					<ul id="incomplete-tasks"></ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<h3>Completed</h3>
-				<ul id="completed-tasks"></ul>
 			</div>
 		</div>
+		<div class="col-xs-12 list-container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h3>Saved Current Weather:<span id="counter"></span></h3>
+				<ul id="incomplete-tasks"></ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Saved Forecasts:</h3>
+			<ul id="completed-tasks"></ul>
+		</div>
 	</div>
-	<div class="container" id="strings-written-here">	<!-- strings written here -->
 </div>
 </div>
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
