@@ -12,5 +12,15 @@
       "zip" : 37013,
       "city" : "Antioch"
     }
+  },
+  "users": {
+    "user0":{
+      "uid": "blablahhhhhhhhh12345",
+      "username": "a"
+    },
+    "user1":{
+      "uid": "blablahhhhhhhhh123456",
+      "username": "b"
+    }
   }
 }
