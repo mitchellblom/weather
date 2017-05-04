@@ -18,8 +18,8 @@ $(function() {
 
 	FbApi.firebaseCredentials().then((keys) => {
         apiKeys = keys;
-        console.log("api keys: ", apiKeys);
         firebase.initializeApp(apiKeys);
+        console.log("api keys: ", apiKeys);
         // FbApi.writeDom(apiKeys);
     }).catch((error) => {
         console.log("key errors", error);
@@ -27,7 +27,7 @@ $(function() {
 
 // register new user
 
-    $("#registerButton").click(() => {
+ $("#registerButton").click(() => {
         let email = $("#inputEmail").val();
         let password = $("#inputPassword").val();
         let username = $("#inputUsername").val();
