@@ -77,6 +77,43 @@ $(function() {
         });
 	});
 
+// save preset
+
+	$("#savePresetButton").click(() => {
+        FbApi.addPreset();
+
+
+        // let newPreset = {
+        //     zip: zipInput,
+        //     city: cityName
+        // };
+        // if (editID.length > 0) {
+        //     FbApi.editTodo(apiKeys, newPreset, editID).then(() => {
+        //         $(".new-container").addClass("hide");
+        //         $(".list-container").removeClass("hide");
+        //         FbApi.writeDom(apiKeys);
+        //         $("#add-todo-text").val("");
+        //         editID = "";
+        //     }).catch((error) => {
+        //         console.log("Addtodo error", error);
+        //     });
+        // } else {
+        //     FbApi.addTodo(apiKeys, newPreset).then(() => {
+        //         $(".new-container").addClass("hide");
+        //         $(".list-container").removeClass("hide");
+        //         FbApi.writeDom(apiKeys);
+
+        //         $("#add-todo-text").val("");
+        //     }).catch((error) => {
+        //         console.log("Addtodo error", error);
+        //     });
+        // }
+
+
+
+	});
+
+
 // clearing inputs upon action
 
     let clearLogin = () => {

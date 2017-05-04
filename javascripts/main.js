@@ -1,6 +1,7 @@
 ///////////// global variable ///////////////////////////////////////
 
 let zipInput = $('#zip-input');
+let cityName;
 let counter = 0;
 
 ///////////// dynamic zipcode validation from html /////////////////
@@ -19,10 +20,9 @@ const zipDynamicValidate = (event) => {
 
 $(document).ready(function(){
 
-	const apiKey = '';											// key goes here
+	const apiKey = '';									// key goes here
 
 	let zipToPromise;
-	let cityName;
 
 	let threeDayForecast = [];
 	let sevenDayForecast = [];
