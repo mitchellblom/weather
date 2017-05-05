@@ -81,6 +81,7 @@ $(function() {
 
 	$("#savePresetButton").click(() => {
         let date = new Date;
+        console.log("city name at savePresetButton press: ", cityName);
         let newPreset = {
             	zip: zipInput.val(),
             	city: cityName,

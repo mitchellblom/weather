@@ -8,6 +8,7 @@ let counter = 0;
 ///////////// dynamic zipcode validation from html /////////////////
 
 const zipDynamicValidate = (event) => {
+	zipInput = $('#zip-input');
     var charCode = (event.which) ? event.which : event.keyCode;
         if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57) || (zipInput.val().length > 4)) {
         	return false;
@@ -105,6 +106,7 @@ $(document).ready(function(){
 
 		const makeAndWriteCurrentWeatherString = (cityInfo) => {
 			$('#strings-written-here').html('');
+			cityName = cityInfo.city.name;
 			let currentString = 
 				`<div class="data-point-container col-lg-4">
 				<div class="data-point">Temp: ${cityInfo.main.temp}°F</div>
