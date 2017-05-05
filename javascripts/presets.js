@@ -16,12 +16,14 @@ var FbApi = ((presetIife) => {
 		});
 	};
 
-	presetIife.addPreset = (apiKeys, newTodo) => {
+	presetIife.addPreset = (apiKeys, newPreset) => {
+		console.log("apiKeys after: ", apiKeys);
+		console.log("newPreset after: ", newPreset);
 		return new Promise ((resolve, reject) => {
 			$.ajax({
 				method: "POST",
 				url: `${apiKeys.databaseURL}/items.json`,
-				data: JSON.stringify(newTodo)
+				data: JSON.stringify(newPreset)
 			})
 			.done(() => {
 				resolve();
@@ -47,21 +49,21 @@ var FbApi = ((presetIife) => {
 		});
 	};
 
-	presetIife.editPreset = (apiKeys, todo, id) => {
-		return new Promise ((resolve, reject) => {
-			$.ajax({
-				method: "PUT",
-				url: `${apiKeys.databaseURL}/items/${id}.json`,
-				data: JSON.stringify(todo)
-			})
-			.done(() => {
-				resolve();
-			})
-			.fail((error) => {
-				reject(error);
-			});
-		});
-	};
+	// presetIife.editPreset = (apiKeys, newPreset) => {						/// may not need this
+	// 	return new Promise ((resolve, reject) => {
+	// 		$.ajax({
+	// 			method: "PUT",
+	// 			url: `${apiKeys.databaseURL}/items/${id}.json`,
+	// 			data: JSON.stringify(todo)
+	// 		})
+	// 		.done(() => {
+	// 			resolve();
+	// 		})
+	// 		.fail((error) => {
+	// 			reject(error);
+	// 		});
+	// 	});
+	// };
 
 	return presetIife;
 })(FbApi || {});

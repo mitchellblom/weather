@@ -19,8 +19,8 @@
 				</div>
 				<div class="collapse navbar-collapse" id="">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a id="new-preset" href="#">Lookup</a></li>
-						<li><a id="list-presets" href="#">Presets</a></li>
+						<li><a id="new-preset" href="#">New Search</a></li>
+						<li><a id="list-presets" href="#">Saved Searches</a></li>
 					</ul>
 				</div>
 			</div>
@@ -36,10 +36,10 @@
 		</div>
 		<div class="col-xs-8 col-xs-offset-2 hide main-container">
 			<div class="container input-zip hide">
-				<h4>Enter Zip Code:</h4>
 				<div>
 					<div>
-						<div class="input-group">
+						<h4>Enter Zip Code:</h4>
+						<div class="input-group container">
 							<input type="text" class="form-control text-input" placeholder="#####" id="zip-input"; onkeypress="return zipDynamicValidate(event)">
 							<span class="input-group-btn">
 								<div class="btn-group">
@@ -53,7 +53,7 @@
 									</ul>
 								</div>
 									<button type="button" id="savePresetButton" class="btn btn-default" aria-haspopup="true" aria-expanded="false">
-									Save Preset
+									Save Search
 									</button>
 							</span>
 						</div>

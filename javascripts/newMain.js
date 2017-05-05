@@ -80,37 +80,28 @@ $(function() {
 // save preset
 
 	$("#savePresetButton").click(() => {
-        FbApi.addPreset();
-
-
-        // let newPreset = {
-        //     zip: zipInput,
-        //     city: cityName
-        // };
-        // if (editID.length > 0) {
-        //     FbApi.editTodo(apiKeys, newPreset, editID).then(() => {
-        //         $(".new-container").addClass("hide");
-        //         $(".list-container").removeClass("hide");
+        let date = new Date;
+        let newPreset = {
+            	zip: zipInput.val(),
+            	city: cityName,
+            	type: searchType,
+            	date: date
+        		// uid: 
+        };
+        if (zipInput.val().length > 0) {
+            FbApi.addPreset(apiKeys, newPreset).then(() => {						////////////
+                $(".input-zip").addClass("hide");
+                $(".list-container").removeClass("hide");
         //         FbApi.writeDom(apiKeys);
-        //         $("#add-todo-text").val("");
-        //         editID = "";
-        //     }).catch((error) => {
-        //         console.log("Addtodo error", error);
-        //     });
-        // } else {
-        //     FbApi.addTodo(apiKeys, newPreset).then(() => {
-        //         $(".new-container").addClass("hide");
-        //         $(".list-container").removeClass("hide");
-        //         FbApi.writeDom(apiKeys);
-
-        //         $("#add-todo-text").val("");
-        //     }).catch((error) => {
-        //         console.log("Addtodo error", error);
-        //     });
-        // }
-
-
-
+        		console.log("newPreset before: ", newPreset);
+                $("#zip-input").val("");
+                zipInput = "";
+            }).catch((error) => {
+                console.log("addPreset error", error);
+            });
+        } else {
+            alert("Have you entered a search to save?");
+        }
 	});
 
 

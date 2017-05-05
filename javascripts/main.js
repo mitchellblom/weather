@@ -2,6 +2,7 @@
 
 let zipInput = $('#zip-input');
 let cityName;
+let searchType;
 let counter = 0;
 
 ///////////// dynamic zipcode validation from html /////////////////
@@ -34,10 +35,12 @@ $(document).ready(function(){
 		 });
 
 		$('body').on('click', '#current', () => {
+			searchType = "current";
 			submitForCurrent();
 		});
 
 		$('body').on('click', '#three-day', () => {
+			searchType = "threeDay";
 			zipToPromise = zipInput[0].value;
 			loadForecast(zipToPromise).then((result) => {
 				makeForecastArrays(result);}).then(() => {
@@ -49,6 +52,7 @@ $(document).ready(function(){
 		});
 
 		$('body').on('click', '#seven-day', () => {
+			searchType = "sevenDay";
 			zipToPromise = zipInput[0].value;
 			loadForecast(zipToPromise).then((result) => {
 				makeForecastArrays(result);}).then(() => {

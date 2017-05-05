@@ -3,7 +3,7 @@ body {
   text-align: center;
   padding: 2%; }
 
-.input-zip {
+.input-group {
   width: 400px; }
 
 .data-point-container {
@@ -14,7 +14,8 @@ body {
   font-family: 'PT Sans Caption', sans-serif;
   font-size: 1.4em;
   margin: auto;
-  padding: 1%; }
+  padding: 1%;
+  margin: 1%; }
 
 h1 {
   font-family: Chicle, sans-serif;
