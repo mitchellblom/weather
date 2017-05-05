@@ -92,7 +92,7 @@ $(function() {
             FbApi.addPreset(apiKeys, newPreset).then(() => {						////////////
                 $(".input-zip").addClass("hide");
                 $(".list-container").removeClass("hide");
-        //         FbApi.writeDom(apiKeys);
+                FbApi.writePresetsToDom(apiKeys);
         		console.log("newPreset before: ", newPreset);
                 $("#zip-input").val("");
                 zipInput = "";
