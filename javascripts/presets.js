@@ -17,13 +17,26 @@ var FbApi = ((presetIife) => {
 	};
 
 	presetIife.addPreset = (apiKeys, newPreset) => {
-		console.log("apiKeys after: ", apiKeys);
-		console.log("newPreset after: ", newPreset);
 		return new Promise ((resolve, reject) => {
 			$.ajax({
 				method: "POST",
 				url: `${apiKeys.databaseURL}/items.json`,
 				data: JSON.stringify(newPreset)
+			})
+			.done(() => {
+				resolve();
+			})
+			.fail((error) => {
+				reject(error);
+			});
+		});
+	};
+
+	presetIife.deletePreset = (apiKeys, id) => {
+		return new Promise ((resolve, reject) => {
+			$.ajax({
+				method: "DELETE",
+				url: `${apiKeys.databaseURL}/items/${id}.json`
 			})
 			.done(() => {
 				resolve();

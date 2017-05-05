@@ -90,11 +90,10 @@ $(function() {
         		// uid: 
         };
         if (zipInput.val().length > 0) {
-            FbApi.addPreset(apiKeys, newPreset).then(() => {						////////////
+            FbApi.addPreset(apiKeys, newPreset).then(() => {
                 $(".input-zip").addClass("hide");
                 $(".list-container").removeClass("hide");
                 FbApi.writePresetsToDom(apiKeys);
-        		console.log("newPreset before: ", newPreset);
                 $("#zip-input").val("");
                 zipInput = "";
             }).catch((error) => {
@@ -104,6 +103,16 @@ $(function() {
             alert("Have you entered a search to save?");
         }
 	});
+
+// delete preset
+
+    $(".list-container").on("click", ".delete", (e) => {
+        FbApi.deletePreset(apiKeys, e.target.id).then(() => {
+            FbApi.writePresetsToDom(apiKeys);
+        }).catch(error => {
+            console.log("error in deletePreset", error);
+        });
+    });
 
 
 // clearing inputs upon action
