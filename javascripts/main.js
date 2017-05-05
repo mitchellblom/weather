@@ -36,12 +36,12 @@ $(document).ready(function(){
 		 });
 
 		$('body').on('click', '#current', () => {
-			searchType = "current";
+			searchType = "Current";
 			submitForCurrent();
 		});
 
 		$('body').on('click', '#three-day', () => {
-			searchType = "threeDay";
+			searchType = "Three Day";
 			zipToPromise = zipInput[0].value;
 			loadForecast(zipToPromise).then((result) => {
 				makeForecastArrays(result);}).then(() => {
@@ -53,7 +53,7 @@ $(document).ready(function(){
 		});
 
 		$('body').on('click', '#seven-day', () => {
-			searchType = "sevenDay";
+			searchType = "Seven Day";
 			zipToPromise = zipInput[0].value;
 			loadForecast(zipToPromise).then((result) => {
 				makeForecastArrays(result);}).then(() => {
@@ -106,7 +106,8 @@ $(document).ready(function(){
 
 		const makeAndWriteCurrentWeatherString = (cityInfo) => {
 			$('#strings-written-here').html('');
-			cityName = cityInfo.city.name;
+			// console.log(cityInfo);
+			cityName = cityInfo.name;
 			let currentString = 
 				`<div class="data-point-container col-lg-4">
 				<div class="data-point">Temp: ${cityInfo.main.temp}°F</div>

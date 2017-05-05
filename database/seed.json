@@ -2,15 +2,21 @@
   "items" : {
     "item0" : {
       "zip" : 75032,
-      "city" : "Rockwall"
+      "city" : "Rockwall",
+      "type" : "Current",
+      "date" : "Fri May 05 2017 14:09:57 GMT-0500 (CDT)"
     },
     "item1" : {
       "zip" : 37208,
-      "city" : "Nashville"
+      "city" : "Nashville",
+      "type" : "Three Day",
+      "date" : "Fri May 05 2017 14:09:57 GMT-0500 (CDT)"
     },
     "item2" : {
       "zip" : 37013,
-      "city" : "Antioch"
+      "city" : "Antioch",
+      "type" : "Seven Day",
+      "date" : "Fri May 05 2017 14:09:57 GMT-0500 (CDT)"
     }
   },
   "users": {
