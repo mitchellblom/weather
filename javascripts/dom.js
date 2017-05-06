@@ -28,14 +28,14 @@ var FbApi = ((domIife) => {
         });
     };
 
-    //     domIife.createLogoutButton = (apiKey) => {
-    //     let uid = FbApi.credentialsCurrentUser().uid;
-    //     FbApi.getUser(apiKey, uid).then((user) => {
-    //         console.log("dom user: ", user);
-    //         let logoutButton = `<button class="btn btn-danger" id="logoutButton">LOGOUT ${user.username}</button>`;
-    //         $('#logout-container').html(logoutButton);
-    //     });
-    // };
+        domIife.createLogoutButton = (apiKey) => {
+        let uid = FbApi.credentialsCurrentUser().uid;
+        FbApi.getUser(apiKey, uid).then((user) => {
+            console.log("dom user: ", user);
+            let logoutButton = `<button class="btn btn-danger" id="logoutButton">LOGOUT ${user.username}</button>`;
+            $('#logout-container').html(logoutButton);
+        });
+    };
 
     return domIife;
 })(FbApi || {});

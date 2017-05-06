@@ -75,6 +75,8 @@ $(function() {
         }).catch((error) => {
             console.log("error in loginUser: ", error);
         });
+
+        FbApi.createLogoutButton(apiKeys);
 	});
 
 // save preset
@@ -122,5 +124,14 @@ $(function() {
         let password = $("").val();
         let username = $("").val();
     };
+
+// logout button
+
+    $('#logout-container').on('click', '#logoutButton', () => {
+        clearLogin();
+        FbApi.logoutUser();
+        $('#login-container').removeClass('hide');
+        $('.main-container').addClass('hide');
+    })
 
 });

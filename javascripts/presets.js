@@ -47,21 +47,6 @@ var FbApi = ((presetIife) => {
 		});
 	};
 
-	presetIife.deletePreset = (apiKeys, id) => {
-		return new Promise ((resolve, reject) => {
-			$.ajax({
-				method: "DELETE",
-				url: `${apiKeys.databaseURL}/items/${id}.json`
-			})
-			.done(() => {
-				resolve();
-			})
-			.fail((error) => {
-				reject(error);
-			});
-		});
-	};
-
 	// presetIife.editPreset = (apiKeys, newPreset) => {						/// may not need this
 	// 	return new Promise ((resolve, reject) => {
 	// 		$.ajax({
