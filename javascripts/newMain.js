@@ -46,6 +46,8 @@ $(function() {
                     $('#login-container').addClass('hide');
                     $('.main-container').removeClass('hide');
                     // FbApi.writeDom(apiKeys);
+       				FbApi.createLogoutButton(apiKeys);
+       				clearLogin();
                 }).catch((error) => {
                     console.log("error in loginUser: ", error);
                 });
@@ -55,8 +57,6 @@ $(function() {
         }).catch((error) => {
             console.log("error in registerUser", error);
         });
-        FbApi.createLogoutButton(apiKeys);
-        clearLogin();
     });
 
 // login existing user
@@ -74,11 +74,11 @@ $(function() {
             $('#login-container').addClass('hide');
             $('.main-container').removeClass('hide');
             // FbApi.writeDom(apiKeys);
+       		FbApi.createLogoutButton(apiKeys);
+        	clearLogin();
         }).catch((error) => {
             console.log("error in loginUser: ", error);
         });
-        FbApi.createLogoutButton(apiKeys);
-        clearLogin();
 	});
 
 // save preset
