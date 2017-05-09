@@ -69,8 +69,8 @@ $(function() {
         };
         FbApi.loginUser(user).then((response) => {
             clearLogin();
-            $('#login-container').addClass('hide');
-            $('.main-container').removeClass('hide');
+            $('#login-display').addClass('hide');
+            $('#movie-container').removeClass('hide');
             // FbApi.writeDom(apiKeys);
         }).catch((error) => {
             console.log("error in loginUser: ", error);
@@ -82,14 +82,15 @@ $(function() {
 // save preset
 
 	$("#savePresetButton").click(() => {
-        let date = new Date;
+        let date = new Date();
         console.log("city name at savePresetButton press: ", cityName);
         let newPreset = {
-            	zip: zipInput.val(),
             	city: cityName,
+            	date: date,
             	type: searchType,
-            	date: date
-        		// uid: 
+        		uid: firebaseCredentials(),
+            	zip: zipInput.val(),
+            	
         };
         if (zipInput.val().length > 0) {
             FbApi.addPreset(apiKeys, newPreset).then(() => {
@@ -132,6 +133,6 @@ $(function() {
         FbApi.logoutUser();
         $('#login-container').removeClass('hide');
         $('.main-container').addClass('hide');
-    })
+    });
 
 });

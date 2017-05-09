@@ -17,18 +17,19 @@ var FbApi = ((domIife) => {
                     stringToWrite += `<button class="btn btn-submit delete" id="${preset.id}">Delete</button>`;
                     stringToWrite += `<button class="btn btn-submit">Load</button>`;
                     stringToWrite += `</div>`;
-            if (presetType == "Current") {
-                $('#saved-current').html(stringToWrite);                       // strings write in both for some reason
-            } else {
-                $('#saved-forecasts').html(stringToWrite);
-            }
+            // if (presetType == "Current") {
+            //     $('#saved-current').html(stringToWrite);                       // strings write in both for some reason
+            // } else {
+            //     $('#saved-forecasts').html(stringToWrite);
+            // }
             });
+            $('saved-searches').html(stringToWrite);
         }).catch((error) => {
             console.log("writedom error", error);
         });
     };
 
-        domIife.createLogoutButton = (apiKey) => {
+    domIife.createLogoutButton = (apiKey) => {
         let uid = FbApi.credentialsCurrentUser().uid;
         FbApi.getUser(apiKey, uid).then((user) => {
             console.log("dom user: ", user);
