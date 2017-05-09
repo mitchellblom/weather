@@ -55,6 +55,7 @@ $(function() {
         }).catch((error) => {
             console.log("error in registerUser", error);
         });
+        FbApi.createLogoutButton(apiKeys);
         clearLogin();
     });
 
