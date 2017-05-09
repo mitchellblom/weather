@@ -1,6 +1,7 @@
 var FbApi = ((domIife) => {
 
     domIife.writePresetsToDom = (keys) => {
+        console.log("inside writePresetsToDom");
         FbApi.getPresets(keys).then((results) => {
             $('#saved-current').html("");
             $('#saved-forecasts').html("");
@@ -8,7 +9,7 @@ var FbApi = ((domIife) => {
             let stringToWrite = "";
             savedPresets.forEach((preset) => {
                     let presetType = preset.type;
-                // console.log("each preset that should then write to dom: ", preset);
+                console.log("each preset that should then write to dom: ", preset);
                     stringToWrite += `<div class="row presetString">`;
                     stringToWrite += `<h4 class="col-xs-10">${preset.city}</h4>`;
                     stringToWrite += `<div class="col-xs-10">${preset.type}</div>`;
@@ -23,7 +24,7 @@ var FbApi = ((domIife) => {
             //     $('#saved-forecasts').html(stringToWrite);
             // }
             });
-            $('saved-searches').html(stringToWrite);
+            $('#saved-searches').html(stringToWrite);
         }).catch((error) => {
             console.log("writedom error", error);
         });
@@ -33,7 +34,7 @@ var FbApi = ((domIife) => {
         let uid = FbApi.credentialsCurrentUser().uid;
         FbApi.getUser(apiKey, uid).then((user) => {
             console.log("dom user: ", user);
-            let logoutButton = `<button class="btn btn-danger" id="logoutButton">LOGOUT ${user.username}</button>`;
+            let logoutButton = `<button class="btn btn-primary" id="logoutButton">LOGOUT ${user.username}</button>`;
             $('#logout-container').html(logoutButton);
         });
     };
