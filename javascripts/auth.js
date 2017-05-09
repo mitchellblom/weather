@@ -28,6 +28,7 @@ var FbApi = ((oldFbApi) => {
 
 	oldFbApi.logoutUser = () => {
 		firebase.auth().signOut();
+		$('#logout-container').html("");
 	};
 
 	return oldFbApi;

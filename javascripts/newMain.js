@@ -55,6 +55,7 @@ $(function() {
         }).catch((error) => {
             console.log("error in registerUser", error);
         });
+        clearLogin();
     });
 
 // login existing user
@@ -69,14 +70,14 @@ $(function() {
         };
         FbApi.loginUser(user).then((response) => {
             clearLogin();
-            $('#login-display').addClass('hide');
-            $('#movie-container').removeClass('hide');
+            $('#login-container').addClass('hide');
+            $('.main-container').removeClass('hide');
             // FbApi.writeDom(apiKeys);
         }).catch((error) => {
             console.log("error in loginUser: ", error);
         });
-
         FbApi.createLogoutButton(apiKeys);
+        clearLogin();
 	});
 
 // save preset
@@ -121,9 +122,9 @@ $(function() {
 // clearing inputs upon action
 
     let clearLogin = () => {
-        let email = $("").val();
-        let password = $("").val();
-        let username = $("").val();
+        let email = $("#inputEmail").val("");
+        let password = $("#inputPassword").val("");
+        let username = $("#inputUsername").val("");
     };
 
 // logout button

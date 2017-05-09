@@ -115,7 +115,6 @@ $(document).ready(function(){
 				<div class="data-point">Pressure: ${cityInfo.main.pressure} mb</div>
 				<div class="data-point">Wind: ${cityInfo.wind.speed} mph</div>
 				</div>`;
-				
 			$('#strings-written-here').html(`<h4>Current Weather in ${cityInfo.name}</h4>`);	
 			$('#strings-written-here').append(currentString);
 		};
@@ -141,7 +140,6 @@ $(document).ready(function(){
 				if (counter % 4 === 0) {
                 	forecastString += `<div class="row">`;
             	}
-
 				forecastString += 
 					`<div class="data-point-container col-lg-3">
 					<div class="data-point">${daysOutString}</div>
@@ -150,11 +148,9 @@ $(document).ready(function(){
 					<div class="data-point">Pressure: ${forecastArray[i].main.pressure} mb</div>
 					<div class="data-point">Wind: ${forecastArray[i].wind.speed} mph</div>
 					</div>`;
-
 				if (counter % 4 === 3) {
                 	forecastString += `</div>`;
                 }
-
 				$('#strings-written-here').append(forecastString);
 			}
 		};
