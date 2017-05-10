@@ -2,12 +2,13 @@ var FbApi = ((presetIife) => {
 
     presetIife.getPresets = (apiKeys) => {
         let items = [];
+        let uid = FbApi.credentialsCurrentUser().uid;
         return new Promise((resolve, reject) => {
-            $.ajax(`${apiKeys.databaseURL}/items.json`)
+            $.ajax(`${apiKeys.databaseURL}/items.json?orderBy="uid"&equalTo="${uid}"`) // `${apiKeys.databaseURL}/items.json`
                 .done((data) => {
                     let response = data;
                     Object.keys(response).forEach((key) => {
-                        response[key].id = key;
+                        response[key].uid = key;
                         items.push(response[key]);
                     });
                     resolve(items);
