@@ -81,6 +81,16 @@ $(function() {
         });
 	});
 
+// load preset from saved searches
+
+	$("body").on("click", ".loadPreset", (e) => {										//////CONTINUE HERE/////////
+        let loadThisId = $(event.target).closest(".btn").siblings(".btn")[0].id
+        console.log(loadThisId);
+        // lookup item by id
+		// get zip and search type from object
+		// write search using existing functions
+	});
+	
 // save preset
 
 	$("#savePresetButton").click(() => {
@@ -90,7 +100,7 @@ $(function() {
             	city: cityName,
             	date: date,
             	type: searchType,
-        		uid: FbApi.credentialsCurrentUser().uid,										///// loading uid
+        		uid: FbApi.credentialsCurrentUser().uid,
             	zip: zipInput.val()
         };
         if (zipInput.val().length > 0) {
