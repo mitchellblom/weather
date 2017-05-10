@@ -111,6 +111,7 @@ $(function() {
 // delete preset
 
     $(".list-container").on("click", ".delete", (e) => {
+    	console.log(e.target);
         FbApi.deletePreset(apiKeys, e.target.id).then(() => {
             FbApi.writePresetsToDom(apiKeys);
         }).catch(error => {

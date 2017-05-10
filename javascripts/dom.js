@@ -14,7 +14,7 @@ var FbApi = ((domIife) => {
                 stringToWrite += `<div class="col-xs-10">${preset.type}</div>`;
                 stringToWrite += `<div class="col-xs-10">${preset.date}</div>`;
                 stringToWrite += `<div class="col-xs-2">`;
-                stringToWrite += `<button class="btn btn-submit delete" id="${preset.id}">Delete</button>`;
+                stringToWrite += `<button class="btn btn-submit delete" id="${preset.uid}">Delete</button>`;
                 stringToWrite += `<button class="btn btn-submit">Load</button>`;
                 stringToWrite += `</div>`;
             });
