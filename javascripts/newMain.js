@@ -20,7 +20,7 @@ $(function() {
         apiKeys = keys;
         firebase.initializeApp(apiKeys);
         console.log("api keys: ", apiKeys);
-        FbApi.writePresetsToDom(apiKeys);
+        // FbApi.writePresetsToDom(apiKeys);
     }).catch((error) => {
         console.log("key errors", error);
     });
@@ -45,7 +45,7 @@ $(function() {
                     clearLogin();
                     $('#login-container').addClass('hide');
                     $('.main-container').removeClass('hide');
-                    // FbApi.writeDom(apiKeys);
+                    // FbApi.writePresetsToDom(apiKeys);
        				FbApi.createLogoutButton(apiKeys);
        				clearLogin();
                 }).catch((error) => {
@@ -73,7 +73,7 @@ $(function() {
             clearLogin();
             $('#login-container').addClass('hide');
             $('.main-container').removeClass('hide');
-            // FbApi.writeDom(apiKeys);
+            FbApi.writePresetsToDom(apiKeys);
        		FbApi.createLogoutButton(apiKeys);
         	clearLogin();
         }).catch((error) => {
@@ -90,9 +90,8 @@ $(function() {
             	city: cityName,
             	date: date,
             	type: searchType,
-        		uid: firebaseCredentials(),
-            	zip: zipInput.val(),
-            	
+        		uid: FbApi.credentialsCurrentUser().uid,										///// loading uid
+            	zip: zipInput.val()
         };
         if (zipInput.val().length > 0) {
             FbApi.addPreset(apiKeys, newPreset).then(() => {
