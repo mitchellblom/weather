@@ -23,7 +23,8 @@ var FbApi = ((presetIife) => {
     	return new Promise((resolve, reject) => {
     		$.ajax(`${apiKeys.databaseURL}/items/${id}.json`)
     			.done((data) => {
-    				console.log(data);
+    				let presetToBeLoaded = data;
+    				resolve(presetToBeLoaded);
     			})
     			.fail((error) => {
                     reject(error);

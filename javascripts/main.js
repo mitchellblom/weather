@@ -1,5 +1,7 @@
 ///////////// global variable ///////////////////////////////////////
 
+const apiKey = '';									// key goes here
+
 let zipInput = $('#zip-input');
 let cityName;
 let searchType;
@@ -21,8 +23,6 @@ const zipDynamicValidate = (event) => {
 ///////////// promise and weather dom functions ////////////////////
 
 $(document).ready(function(){
-
-	const apiKey = '';									// key goes here
 
 	let zipToPromise;
 
@@ -69,25 +69,11 @@ $(document).ready(function(){
 				alert('Remember to enter an API key.');
 			}
 			zipToPromise = zipInput[0].value;
-			loadCurrent(zipToPromise).then((result) => {
-				makeAndWriteCurrentWeatherString(result);})
+			FbApi.loadCurrent(zipToPromise).then((result) => {
+				FbApi.makeAndWriteCurrentWeatherString(result);})
 				.catch((error) => {
 					console.error(error);
 				});
-		};
-
-		const loadCurrent = (zip) => {
-			return new Promise ((resolve, reject) => {
-				$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
-				`)
-				.done((data) => { 
-					resolve(data); 
-				})
-				.fail((error) => { 
-					reject(error); 
-					alert("Looks like that zipcode isn't recognized."); 
-				});
-			});
 		};
 
 		const loadForecast = (zip) => {
@@ -102,21 +88,6 @@ $(document).ready(function(){
 					alert("Looks like that zipcode isn't recognized."); 
 				});
 			});
-		};
-
-		const makeAndWriteCurrentWeatherString = (cityInfo) => {
-			$('#strings-written-here').html('');
-			// console.log(cityInfo);
-			cityName = cityInfo.name;
-			let currentString = 
-				`<div class="data-point-container col-lg-4">
-				<div class="data-point">Temp: ${cityInfo.main.temp}°F</div>
-				<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
-				<div class="data-point">Pressure: ${cityInfo.main.pressure} mb</div>
-				<div class="data-point">Wind: ${cityInfo.wind.speed} mph</div>
-				</div>`;
-			$('#strings-written-here').html(`<h4>Current Weather in ${cityInfo.name}</h4>`);	
-			$('#strings-written-here').append(currentString);
 		};
 
 		const makeForecastArrays = (cityInfo) => {

@@ -1,6 +1,6 @@
-var FbApi = ((domIife) => {
+var FbApi = ((dom) => {
 
-    domIife.writePresetsToDom = (keys) => {
+    dom.writePresetsToDom = (keys) => {
         console.log("inside writePresetsToDom");
         FbApi.getAllUserPresets(keys).then((results) => {
             $('#saved-searches').html("");
@@ -24,7 +24,7 @@ var FbApi = ((domIife) => {
         });
     };
 
-    domIife.createLogoutButton = (apiKey) => {
+    dom.createLogoutButton = (apiKey) => {
         let uid = FbApi.credentialsCurrentUser().uid;
         FbApi.getUser(apiKey, uid).then((user) => {
             console.log("dom user: ", user);
@@ -33,5 +33,5 @@ var FbApi = ((domIife) => {
         });
     };
 
-    return domIife;
+    return dom;
 })(FbApi || {});

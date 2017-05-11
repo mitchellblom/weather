@@ -5,6 +5,7 @@ $(function() {
 // views
 
 	$("#new-preset").click(() => {
+		$('#strings-written-here').html("");
         $(".list-container").addClass("hide");
         $(".input-zip").removeClass("hide");
     });
@@ -86,9 +87,18 @@ $(function() {
 	$("body").on("click", ".loadPreset", (e) => {										//////CONTINUE HERE/////////
         let loadThisId = $(event.target).closest(".btn").siblings(".btn")[0].id;
         console.log(loadThisId);
-        // lookup item by id
-        FbApi.getSavedPreset(apiKeys, loadThisId);
-		// get zip and search type from object
+        FbApi.getSavedPreset(apiKeys, loadThisId)
+        	.then((data) => {
+        		console.log(data.zip);
+        		console.log(data.type);
+        		if (data.type === "Current") {
+        			FbApi.loadCurrent(data.zip).then((data) => {
+        				FbApi.makeAndWriteCurrentWeatherString(data);
+        			});
+        			$(".list-container").addClass("hide");
+        			$(".input-zip").removeClass("hide");
+        		}
+        	});
 		// write search using existing functions
 	});
 	
