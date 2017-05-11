@@ -84,22 +84,30 @@ $(function() {
 
 // load preset from saved searches
 
-	$("body").on("click", ".loadPreset", (e) => {										//////CONTINUE HERE/////////
+	$("body").on("click", ".loadPreset", (e) => {										
         let loadThisId = $(event.target).closest(".btn").siblings(".btn")[0].id;
         console.log(loadThisId);
         FbApi.getSavedPreset(apiKeys, loadThisId)
         	.then((data) => {
         		console.log(data.zip);
-        		console.log(data.type);
-        		if (data.type === "Current") {
+        		let type = data.type;
+        		if (type === "Current") {
         			FbApi.loadCurrent(data.zip).then((data) => {
         				FbApi.makeAndWriteCurrentWeatherString(data);
         			});
-        			$(".list-container").addClass("hide");
-        			$(".input-zip").removeClass("hide");
+        		} else {
+        			FbApi.loadForecast(data.zip).then((cityInfo) => {
+        				FbApi.makeForecastArrays(cityInfo);}).then((data) => {
+        				if (type === "Three Day") {
+							FbApi.writeForecastArray(threeDayForecast);	
+        				} else {
+        					FbApi.writeForecastArray(sevenDayForecast);	
+        				}
+        			});
         		}
+        		$(".list-container").addClass("hide");
+        		$(".input-zip").removeClass("hide");
         	});
-		// write search using existing functions
 	});
 	
 // save preset
