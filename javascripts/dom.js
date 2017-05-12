@@ -1,14 +1,12 @@
 var FbApi = ((dom) => {
 
     dom.writePresetsToDom = (keys) => {
-        console.log("inside writePresetsToDom");
         FbApi.getAllUserPresets(keys).then((results) => {
             $('#saved-searches').html("");
             let savedPresets = results;
             let stringToWrite = "";
             savedPresets.forEach((preset) => {
                 let presetType = preset.type;
-                console.log("each preset that should then write to dom: ", preset);
                 stringToWrite += `<div class="row presetString" id="presetType">`;
                 stringToWrite += `<h4 class="col-xs-10">${preset.city}</h4>`;
                 stringToWrite += `<div class="col-xs-10">${preset.type}</div>`;
@@ -27,7 +25,6 @@ var FbApi = ((dom) => {
     dom.createLogoutButton = (apiKey) => {
         let uid = FbApi.credentialsCurrentUser().uid;
         FbApi.getUser(apiKey, uid).then((user) => {
-            console.log("dom user: ", user);
             let logoutButton = `<button class="btn btn-primary" id="logoutButton">LOGOUT ${user.username}</button>`;
             $('#logout-container').html(logoutButton);
         });

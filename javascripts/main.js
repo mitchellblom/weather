@@ -1,6 +1,6 @@
 ///////////// global variable ///////////////////////////////////////
 
-const apiKey = '';									// key goes here
+const weatherApiKey = '';									// key goes here
 
 let zipInput = $('#zip-input');
 let cityName;
@@ -65,7 +65,7 @@ $(document).ready(function(){
 		});
 
 		const submitForCurrent = () => {
-			if (apiKey === '') {
+			if (weatherApiKey === '') {
 				alert('Remember to enter an API key.');
 			}
 			zipToPromise = zipInput[0].value;

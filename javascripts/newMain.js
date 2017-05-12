@@ -20,8 +20,6 @@ $(function() {
 	FbApi.firebaseCredentials().then((keys) => {
         apiKeys = keys;
         firebase.initializeApp(apiKeys);
-        console.log("api keys: ", apiKeys);
-        // FbApi.writePresetsToDom(apiKeys);
     }).catch((error) => {
         console.log("key errors", error);
     });
@@ -46,7 +44,6 @@ $(function() {
                     clearLogin();
                     $('#login-container').addClass('hide');
                     $('.main-container').removeClass('hide');
-                    // FbApi.writePresetsToDom(apiKeys);
        				FbApi.createLogoutButton(apiKeys);
        				clearLogin();
                 }).catch((error) => {
@@ -86,10 +83,8 @@ $(function() {
 
 	$("body").on("click", ".loadPreset", (e) => {										
         let loadThisId = $(event.target).closest(".btn").siblings(".btn")[0].id;
-        console.log(loadThisId);
         FbApi.getSavedPreset(apiKeys, loadThisId)
         	.then((data) => {
-        		console.log(data.zip);
         		let type = data.type;
         		if (type === "Current") {
         			FbApi.loadCurrent(data.zip).then((data) => {
@@ -114,7 +109,6 @@ $(function() {
 
 	$("#savePresetButton").click(() => {
         let date = new Date();
-        console.log("city name at savePresetButton press: ", cityName);
         let newPreset = {
             	city: cityName,
             	date: date,

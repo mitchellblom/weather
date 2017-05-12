@@ -2,7 +2,7 @@ var FbApi = ((api) => {
 
 	api.loadCurrent = (zip) => {
 		return new Promise ((resolve, reject) => {
-			$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${apiKey}
+			$.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&APPID=${weatherApiKey}
 			`)
 			.done((data) => { 
 				resolve(data); 
@@ -31,7 +31,7 @@ var FbApi = ((api) => {
 
 	api.loadForecast = (zip) => {
 		return new Promise ((resolve, reject) => {
-			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=${apiKey}
+			$.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&units=imperial&APPID=${weatherApiKey}
 			`)
 			.done((data) => { 
 				resolve(data); 
