@@ -1,6 +1,7 @@
 # NSS Weather API Exercise
 
-![Splashpage](https://raw.githubusercontent.com/mitchellblom/weather/weather/weather1.png)
+![Splashpage](https://raw.githubusercontent.com/mitchellblom/weather/auth/screenshots/weather2.png)
+![Splashpage](https://raw.githubusercontent.com/mitchellblom/weather/auth/screenshots/weather3.png)
 
 <hr>
 
