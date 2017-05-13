@@ -1,4 +1,4 @@
-///////////// global variable ///////////////////////////////////////
+// global variables
 
 const weatherApiKey = '';									// key goes here
 
@@ -12,7 +12,7 @@ let zipToPromise;
 let threeDayForecast = [];
 let sevenDayForecast = [];
 
-///////////// dynamic zipcode validation from html /////////////////
+// dynamic zipcode validation from html
 
 const zipDynamicValidate = (event) => {
 	zipInput = $('#zip-input');
@@ -25,7 +25,7 @@ const zipDynamicValidate = (event) => {
     	}
 };
 
-///////////// promise and weather dom functions ////////////////////
+// promise and weather dom functions
 
 $(document).ready(function(){
 
