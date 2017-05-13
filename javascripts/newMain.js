@@ -153,7 +153,7 @@ $(function() {
 
 // logout button
 
-    $('#logout-container').on('click', '#logoutButton', () => {
+    $('#logout-container').on('click', '#logout-link', () => {
         clearLogin();
         FbApi.logoutUser();
         $('#login-container').removeClass('hide');

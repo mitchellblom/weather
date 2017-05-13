@@ -26,7 +26,7 @@ var FbApi = ((dom) => {
         let uid = FbApi.credentialsCurrentUser().uid;
         FbApi.getUser(apiKey, uid).then((user) => {
             let logoutButton = `Logout ${user.username}`;
-            $('#logout-container').html(logoutButton);
+            $('#logout-link').html(logoutButton);
         });
     };
 
