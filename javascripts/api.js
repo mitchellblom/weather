@@ -48,12 +48,9 @@ var FbApi = ((api) => {
 		cityName = cityInfo.city.name;
 		threeDayForecast = cityInfo.list.slice(0,3);
 		sevenDayForecast = cityInfo.list.slice(0,7);
-		console.log("3 day", threeDayForecast);
-		console.log("7 day", sevenDayForecast);
 	};
 
 	api.writeForecastArray = (forecastArray) => {
-		console.log("forecastArray inside api iife: ", forecastArray);
 		$('#strings-written-here').html(`<h4>Forecast for ${cityName}</h4>`);
 			let daysOutString = '';
 		for (var i = 0; i < forecastArray.length; i++) {

@@ -2,11 +2,16 @@ body {
 	background-image: url("http://eskipaper.com/images/cloud-background-1.jpg");
 	text-align: center;
 	padding: 2%;
-	// color: white;
 }
 
 .input-group {
 	width: 400px;
+}
+
+.center-cards {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
 }
 
 .data-point-container {
@@ -39,10 +44,12 @@ h4 {
 
 h3 {
 	color: #eee;
+	margin: 1%;
 }
 
 .presetString {
-	display: inline-block;
+	border: 2px solid #eee;
+	margin: 1%;
 }
 
 .btn {

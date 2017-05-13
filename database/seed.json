@@ -20,6 +20,13 @@
       "type" : "Seven Day",
       "uid": "XbEWjf1rYcWWBfBe8sUEsF6rL452",
       "date" : "Fri May 05 2017 14:09:57 GMT-0500 (CDT)"
+    },
+    "item3" : {
+      "zip" : 90210,
+      "city" : "Beverly Hills",
+      "type" : "Seven Day",
+      "uid": "XbEWjf1rYcWWBfBe8sUEsF6rL452",
+      "date" : "May 05 2017 14:09:57 GMT-0500 (CDT)"
     }
   },
   "users": {

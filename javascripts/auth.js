@@ -1,6 +1,7 @@
 var FbApi = ((oldFbApi) => {
 
 	oldFbApi.registerUser = (credentials) => {
+		console.log("making it here");
 		return new Promise ((resolve, reject) => {
 				firebase.auth().createUserWithEmailAndPassword(credentials.email, credentials.password)
 				.then((authData) => {
@@ -27,7 +28,6 @@ var FbApi = ((oldFbApi) => {
 	};
 
 	oldFbApi.logoutUser = () => {
-		console.log("log out button pressed");
 		firebase.auth().signOut();
 		$('#logout-container').html("");
 	};

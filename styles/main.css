@@ -6,6 +6,10 @@ body {
 .input-group {
   width: 400px; }
 
+.center-cards {
+  display: flex;
+  justify-content: center; }
+
 .data-point-container {
   height: 200px;
   background: rgba(255, 255, 255, 0.6);
@@ -29,10 +33,12 @@ h4 {
   font-size: 2em; }
 
 h3 {
-  color: #eee; }
+  color: #eee;
+  margin: 1%; }
 
 .presetString {
-  display: inline-block; }
+  border: 2px solid #eee;
+  margin: 1%; }
 
 .btn {
   border: 1px solid #919191; }
