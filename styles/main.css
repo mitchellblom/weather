@@ -17,17 +17,20 @@ body {
   padding: 1%;
   margin: 1%; }
 
-h1 {
+.headings, h1, h4 {
   font-family: Chicle, sans-serif;
   text-shadow: 1px 1px 1px #000, 0 0 1em #000, 0 0 0.2em white;
-  color: white;
+  color: white; }
+
+h1 {
   font-size: 6em; }
 
 h4 {
-  font-family: Chicle, sans-serif;
-  text-shadow: 1px 1px 1px #000, 0 0 1em #000, 0 0 0.2em white;
-  color: white;
   font-size: 2em; }
 
 .presetString {
   display: inline-block; }
+
+.fa {
+  margin: 10px 25px;
+  color: white; }
