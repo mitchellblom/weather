@@ -18,11 +18,13 @@ var FbApi = ((api) => {
 		$('#strings-written-here').html('');
 		cityName = cityInfo.name;
 		let currentString = 
-			`<div class="data-point-container col-lg-4">
+			`<div class="data-point-container col-md-4 col-md-offset-4">
+			<div class="for-padding">
 			<div class="data-point">Temp: ${cityInfo.main.temp}°F</div>
 			<div class="data-point">Conditions: ${cityInfo.weather[0].description}</div>
 			<div class="data-point">Pressure: ${cityInfo.main.pressure} mb</div>
 			<div class="data-point">Wind: ${cityInfo.wind.speed} mph</div>
+			</div>
 			</div>`;
 		$('#strings-written-here').html(`<h4>Current Weather in ${cityInfo.name}</h4>`);	
 		$('#strings-written-here').append(currentString);
@@ -65,12 +67,14 @@ var FbApi = ((api) => {
             	forecastString += `<div class="row">`;
         	}
 			forecastString += 
-				`<div class="data-point-container col-lg-3">
+				`<div class="data-point-container col-md-4">
+				<div class="for-padding">
 				<div class="data-point">${daysOutString}</div>
 				<div class="data-point">High Temp: ${forecastArray[i].main.temp}°F</div>
 				<div class="data-point">Conditions: ${forecastArray[i].weather[0].description}</div>
 				<div class="data-point">Pressure: ${forecastArray[i].main.pressure} mb</div>
 				<div class="data-point">Wind: ${forecastArray[i].wind.speed} mph</div>
+				</div>
 				</div>`;
 			if (counter % 4 === 3) {
             	forecastString += `</div>`;

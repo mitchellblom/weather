@@ -8,22 +8,17 @@ body {
 	width: 400px;
 }
 
-.center-cards {
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+.data-point-container {
+	padding: 1%;
 }
 
-.data-point-container {
+.for-padding {
 	height: 200px;
 	background: rgba(255, 255, 255, 0.6);
-	border: 2px wavy black;
 	border-radius: 5%;
 	font-family: 'PT Sans Caption', sans-serif;
 	font-size: 1.4em;
-	margin: auto;
-	padding: 1%;
-	margin: 1%;
+	padding-top: 5%;
 }
 
 .headings {
@@ -49,8 +44,8 @@ h3 {
 
 .presetString {
 	border: 2px solid #eee;
-	margin: 1%;
-	vertical-align: middle;
+	margin: 1% auto;
+	width: 50%;
 }
 
 .btn {

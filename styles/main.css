@@ -7,15 +7,15 @@ body {
   width: 400px; }
 
 .data-point-container {
+  padding: 1%; }
+
+.for-padding {
   height: 200px;
   background: rgba(255, 255, 255, 0.6);
-  border: 2px wavy black;
   border-radius: 5%;
   font-family: 'PT Sans Caption', sans-serif;
   font-size: 1.4em;
-  margin: auto;
-  padding: 1%;
-  margin: 1%; }
+  padding-top: 5%; }
 
 .headings, h1, h4 {
   font-family: Chicle, sans-serif;
@@ -34,8 +34,8 @@ h3 {
 
 .presetString {
   border: 2px solid #eee;
-  margin: 1%;
-  vertical-align: middle; }
+  margin: 1% auto;
+  width: 50%; }
 
 .btn {
   border: 1px solid #919191; }

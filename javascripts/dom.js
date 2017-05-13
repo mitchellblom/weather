@@ -8,7 +8,7 @@ var FbApi = ((dom) => {
             savedPresets.forEach((preset) => {
                 let presetType = preset.type;
                 stringToWrite += `<div class="row presetString" id="presetType">`;
-                stringToWrite += `<h4 class="col-xs-10">${preset.city} - <small>${preset.type}</small></h4>`;
+                stringToWrite += `<h4 class="col-xs-10">${preset.city} - ${preset.type}</h4>`;
                 stringToWrite += `<button class="btn btn-submit delete" id="${preset.uid}">Delete</button>`;
                 stringToWrite += `<button class="btn btn-submit loadPreset">Load</button>`;
                 stringToWrite += `</div>`;
