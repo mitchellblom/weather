@@ -28,9 +28,18 @@ h1 {
 h4 {
   font-size: 2em; }
 
+h3 {
+  color: #eee; }
+
 .presetString {
   display: inline-block; }
 
+.btn {
+  border: 1px solid #919191; }
+
 .fa {
   margin: 10px 25px;
+  color: white; }
+
+a {
   color: white; }

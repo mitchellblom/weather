@@ -2,6 +2,7 @@ body {
 	background-image: url("http://eskipaper.com/images/cloud-background-1.jpg");
 	text-align: center;
 	padding: 2%;
+	// color: white;
 }
 
 .input-group {
@@ -36,8 +37,16 @@ h4 {
 	font-size: 2em;
 }
 
+h3 {
+	color: #eee;
+}
+
 .presetString {
 	display: inline-block;
+}
+
+.btn {
+	border: 1px solid #919191;
 }
 
 .fa {
@@ -45,3 +54,6 @@ h4 {
 	color: white;
 }
 
+a {
+	color: white;
+}
