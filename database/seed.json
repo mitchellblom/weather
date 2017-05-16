@@ -1,0 +1,42 @@
+{
+  "items" : {
+    "item0" : {
+      "zip" : 75032,
+      "city" : "Rockwall",
+      "type" : "Current",
+      "uid": "qeG6Gl5PaGdmj9N8BwIDQIvFezL2",
+      "date" : "Fri May 05 2017 14:09:57 GMT-0500 (CDT)"
+    },
+    "item1" : {
+      "zip" : 37208,
+      "city" : "Nashville",
+      "type" : "Three Day",
+      "uid": "qeG6Gl5PaGdmj9N8BwIDQIvFezL2",
+      "date" : "Fri May 05 2017 14:09:57 GMT-0500 (CDT)"
+    },
+    "item2" : {
+      "zip" : 37013,
+      "city" : "Antioch",
+      "type" : "Seven Day",
+      "uid": "XbEWjf1rYcWWBfBe8sUEsF6rL452",
+      "date" : "Fri May 05 2017 14:09:57 GMT-0500 (CDT)"
+    },
+    "item3" : {
+      "zip" : 90210,
+      "city" : "Beverly Hills",
+      "type" : "Seven Day",
+      "uid": "XbEWjf1rYcWWBfBe8sUEsF6rL452",
+      "date" : "May 05 2017 14:09:57 GMT-0500 (CDT)"
+    }
+  },
+  "users": {
+    "user0":{
+      "uid": "qeG6Gl5PaGdmj9N8BwIDQIvFezL2",
+      "username": "a"
+    },
+    "user1":{
+      "uid": "XbEWjf1rYcWWBfBe8sUEsF6rL452",
+      "username": "b"
+    }
+  }
+}

@@ -1,48 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Weather API</title>
-
-	<link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.css">
-	<link href="https://fonts.googleapis.com/css?family=Acme|Chicle|PT+Sans+Caption" rel="stylesheet">
-	<link rel="stylesheet" href="./styles/main.css">
-
-</head>
-<body>
-
-	<h1>Wanna Know Tha Weatha?</h1>
-
-	<h4>Enter Zip Code:</h4>
-	<div class="container input-zip">
-	 	<div>
-		  	<div>
-			    <div class="input-group">
-			      	<input type="text" class="form-control text-input" placeholder="#####" id="zip-input"; onkeypress="return zipDynamicValidate(event)">
-			      	<span class="input-group-btn">
-			       		<div class="btn-group">
-		  					<button type="button" id="left-user-button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		  				  Forecast <span class="caret"></span>
-		  					</button>
-		  					<ul class="dropdown-menu">
-							    <li><a id="current" href="#">Current Weather</a></li>
-							    <li><a id="three-day" href="#">3 Day Forecast</a></li>
-							    <li><a id="seven-day" href="#">7 Day Forecast</a></li>
-							</ul>
+	<head>
+		<title>Weather API</title>
+		<link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.css">
+		<link href="https://fonts.googleapis.com/css?family=Acme|Chicle|PT+Sans+Caption" rel="stylesheet">
+		<link rel="stylesheet" href="./styles/main.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<nav class="navbar">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="">
+					<a href="#"><i class="fa fa-facebook nav navbar-nav navbar-left fa-2x" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter nav navbar-nav navbar-left fa-2x" aria-hidden="true"></i></a>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="logout-container"><a id="logout-link" href="#"></a></li>
+						<li><a id="new-preset" href="#">New Search</a></li>
+						<li><a id="list-presets" href="#">Saved Searches</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<h1>Wanna Know Tha Weatha?</h1>
+		<div class="container col-xs-4 col-xs-offset-4" id="login-container">
+			<h3 class="text-center form-spacing please-login">Please Login or Register</h3>
+			<input type="email" id="inputEmail" class="form-control form-spacing" placeholder="Email Address" required autofocus>
+			<input type="password" id="inputPassword" class="form-control form-spacing" placeholder="Password" required >
+			<input type="text" id="inputUsername" class="form-control form-spacing" placeholder="Username" required>
+			<button class="btn btn-lg col-xs-6" id="loginButton">Login</button>
+			<button class="btn btn-lg col-xs-6" id="registerButton">Register</button>
+		</div>
+		<div class="hide main-container">
+			<div class="container input-zip hide">
+				<div>
+					<div>
+						<h4>Enter Zip Code:</h4>
+						<div class="input-group container">
+							<input type="text" class="form-control text-input" placeholder="#####" id="zip-input"; onkeypress="return zipDynamicValidate(event)">
+							<span class="input-group-btn">
+								<div class="btn-group">
+									<button type="button" id="save-button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Forecast <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a id="current" href="#">Current Weather</a></li>
+										<li><a id="three-day" href="#">3 Day Forecast</a></li>
+										<li><a id="seven-day" href="#">7 Day Forecast</a></li>
+									</ul>
+								</div>
+									<button type="button" id="savePresetButton" class="btn btn-default" aria-haspopup="true" aria-expanded="false">
+									Save Search
+									</button>
+							</span>
 						</div>
-			      	</span>
-			    </div>
+					</div>
+					<div class="container col-md-12" id="strings-written-here">	<!-- strings written here --></div>
 			</div>
 		</div>
-	 </div>
-
-
-	<div class="container" id="strings-written-here">
-		
-	</div> 
-
-	<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
- 	<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  	<script type="text/javascript" src="./javascripts/main.js"></script>
-
+		<div class="list-container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h3>Saved Searches:</h3>
+				<div id="saved-searches"></div>
+			</div>
+		</div>
+</div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./javascripts/firebase.js"></script>
+<script type="text/javascript" src="./javascripts/api.js"></script>
+<script type="text/javascript" src="./javascripts/auth.js"></script>
+<script type="text/javascript" src="./javascripts/user.js"></script>
+<script type="text/javascript" src="./javascripts/newMain.js"></script>
+<script type="text/javascript" src="./javascripts/dom.js"></script>
+<script type="text/javascript" src="./javascripts/main.js"></script>
+<script type="text/javascript" src="./javascripts/presets.js"></script>
 </body>
 </html>

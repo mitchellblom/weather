@@ -4,35 +4,59 @@ body {
 	padding: 2%;
 }
 
-.input-zip {
-	width: 200px;
+.input-group {
+	width: 400px;
 }
 
 .data-point-container {
-	height: 200px;
-	background: rgba(255, 255, 255, 0.6);
-	border: 2px wavy black;
-	border-radius: 5%;
-	font-family: 'PT Sans Caption', sans-serif;
-	font-size: 1.4em;
-	margin: auto;
 	padding: 1%;
 }
 
-$heading-fonts: {
+.for-padding {
+	height: 200px;
+	background: rgba(255, 255, 255, 0.6);
+	border-radius: 5%;
+	font-family: 'PT Sans Caption', sans-serif;
+	font-size: 1.4em;
+	padding-top: 5%;
+}
+
+.headings {
 	font-family: Chicle, sans-serif;
 	text-shadow: 1px 1px 1px #000, 0 0 1em #000, 0 0 0.2em white;
 	color: white;
-
-	h1 {
-		font-size: 6em;
-	}
-	
-	h4 {
-		font-size: 2em;
-	}
-
 }
 
+h1 {
+	@extend .headings;
+	font-size: 6em;
+}
+	
+h4 {
+	@extend .headings;
+	font-size: 2em;
+}
 
+h3 {
+	color: #eee;
+	margin-bottom: 4%;
+}
 
+.presetString {
+	border: 2px solid #eee;
+	margin: 1% auto;
+	width: 50%;
+}
+
+.btn {
+	border: 1px solid #919191;
+}
+
+.fa {
+	margin: 10px 25px;
+	color: white;
+}
+
+a {
+	color: white;
+}
